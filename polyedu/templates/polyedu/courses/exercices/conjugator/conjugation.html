@@ -1,0 +1,14 @@
+<form method="post">
+    {% csrf_token %}
+    <h2>Conjugate the verb</h2>
+    <p>Infinitive: {{ form.infinitive.value }}</p>
+    <p>Tense: {{ form.tense.value }}</p>
+    {% for field in form %}
+      <p>
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+      </p>
+    {% endfor %}
+    <button type="submit">Submit</button>
+  </form>
+  

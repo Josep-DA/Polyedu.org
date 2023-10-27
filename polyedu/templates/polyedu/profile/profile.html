@@ -1,0 +1,239 @@
+{% extends 'polyedu/base.html' %}
+{% load static %}
+{% block content %}
+<title>Profil de {{ profile.user.username }} - PolyEdu</title>
+{% if profile %}
+<br/>
+	<div class="container text-center p-4 rounded">
+		<div class="row">
+			<div class="col-8">
+				<h1>Profil de {{ profile.user.username }}</h1>
+				<br/>
+				
+				<h2>Articles de {{ profile.user.username }} <span class="badge text-bg-secondary" style="vertical-align: middle; font-size:20px;">{{ profile.user.articles.count }}</span> :</h2>
+				{% if articles %}
+					{% for article in articles %}
+
+			<div class="alert alert-dark" role="alert">
+	<div class="container">
+		<div class="row">
+			<div class="col-1">
+				
+				{% if profile.profile_image %}
+				<img src="{{ profile.profile_image.url }}" class=" img-fluid rounded-circle" alt="{{ profile.user.username }}">
+				{% else %}
+				<img src="{% static 'images/default_profile_pic.png' %}" class="img-fluid rounded-circle" alt="{{ profile.user.username }}">	
+				{% endif %}
+
+
+			</div>
+			
+			<div class="col-11">
+				<p>{{ article.body|safe }}</p>
+			  				<small class="text-muted">
+			  					({{ article.created_at}}) Par 
+			  					@{{ article.user.username }}
+			  		- {{ article.number_of_likes }} Votes -
+			  		
+			  		{% if user in article.likes.all %}
+				  	  <a href="{% url 'article_like' article.id %}"><i class="fa-solid fa-heart" style='color:red'></i></a>
+				  	{% else %}
+				  		<a href="{% url 'article_like' article.id %}"><i class="fa fa-heart-o" style="color:red"></i></a>
+				  	{% endif %}
+
+				  	&nbsp;&nbsp;
+<a href="{% url 'article_show' article.id %}"><i class="fa-solid fa-share" style="color:gray"></i></a>
+		  	
+
+{% if request.user.username == profile.user.username %}
+		  	&nbsp;&nbsp;
+<a href="{% url 'delete_article' article.id %}"><i class="fa fa-trash" style="color:gray"></i></a>
+&nbsp;&nbsp;
+<a href="{% url 'edit_article' article.id %}"><i class="fa fa-edit" style="color:gray"></i></a>
+{% endif %}
+				  	
+
+
+			  				</small>
+						</div><br/><br/>
+			</div>
+		</div>
+	</div>
+
+					{% endfor %}
+				{% endif %}
+			</div>
+
+			<div class="col-4">
+				<br/><br/><br/>
+
+				{% if profile.profile_image %}
+				<img src="{{ profile.profile_image.url }}" class="img-fluid  rounded-circle" >
+				<br/><br/>
+				{% endif %}
+					
+				{% if profile.homepage_link %}
+	<a href="https://{{ profile.homepage_link }}" target="new">
+				<i class="fa-solid fa-link" style="color:gray"></i></a>
+				{% endif %}
+				&nbsp;&nbsp;
+				{% if profile.facebook_link %}
+	<a href="https://www.facebook.com/{{ profile.facebook_link }}" target="new">
+		<i class="fa-brands fa-facebook-f" style="color:gray"></i></a>
+				{% endif %}
+				&nbsp;&nbsp;
+				{% if profile.instagram_link %}
+	<a href="https://www.instagram.com/{{ profile.instagram_link }}" target="new">
+		<i class="fa-brands fa-instagram" style="color:gray"></i></a>
+				{% endif %}
+				&nbsp;&nbsp;
+				{% if profile.linkedin_link %}
+	<a href="https://www.linkedin.com/in/{{ profile.linkedin_link }}" target="new">
+		<i class="fa-brands fa-linkedin-in" style="color:gray"></i></a>
+				{% endif %}
+
+<hr/>
+
+<div>
+	<h2 style="margin-bottom: -15px;">{{ profile.user.username }}
+		<!-- If PolyEdu staff -->
+		{% if request.user.groups.all.0.name == "PolyEdu Staff" %}
+		
+		<a href="#" data-bs-toggle="tooltip" data-bs-title="Cet utilisateur fait partie de l'équipe PolyEdu."><svg style="color: #f1c40f" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="30px" height="auto"><path d="M576 136c0 22.09-17.91 40-40 40c-.248 0-.4551-.1266-.7031-.1305l-50.52 277.9C482 468.9 468.8 480 453.3 480H122.7c-15.46 0-28.72-11.06-31.48-26.27L40.71 175.9C40.46 175.9 40.25 176 39.1 176c-22.09 0-40-17.91-40-40S17.91 96 39.1 96s40 17.91 40 40c0 8.998-3.521 16.89-8.537 23.57l89.63 71.7c15.91 12.73 39.5 7.544 48.61-10.68l57.6-115.2C255.1 98.34 247.1 86.34 247.1 72C247.1 49.91 265.9 32 288 32s39.1 17.91 39.1 40c0 14.34-7.963 26.34-19.3 33.4l57.6 115.2c9.111 18.22 32.71 23.4 48.61 10.68l89.63-71.7C499.5 152.9 496 144.1 496 136C496 113.9 513.9 96 536 96S576 113.9 576 136z" fill="#f1c40f" ></path></svg></a> 
+		</p>
+		{% endif %}
+		<!-- If Teacher -->
+		{% if request.user.groups.all.0.name == "Teacher" %}
+		
+		<a href="#" data-bs-toggle="tooltip" data-bs-title="Cet utilisateur est un enseignant vérifié."><svg style="vertical-align: baseline; color: #e74c3c" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="30px" height="auto" fill="currentColor" class="bi bi-star-fill"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" fill="#e74c3c" ></path></svg></a> 
+		</p>
+		{% endif %}
+		<!-- If Resource-Student -->
+		{% if request.user.groups.all.0.name == "Resource-Student" %}
+		
+		<a href="#" data-bs-toggle="tooltip" data-bs-title="Cet utilisateur est un étudiant-ressource vérifié."><svg style="vertical-align: baseline; color: #2980b9" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="30px" height="auto" fill="currentColor" class="bi bi-star-fill"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" fill="#2980b9" ></path></svg></a> 
+		</p>
+		{% endif %}
+		</h2>	
+		<h6 style="margin-bottom: 15px;" class="card-subtitle text-muted"><a class="clr-link text-muted" href="{% url 'follows' profile.user.id %}">{{ profile.followed_by.count }} abonnés</a> ◈ <a class="clr-link text-muted" href="{% url 'followers' profile.user.id %}">{{ profile.follows.count }} abonnements</a></h6>
+			
+		</div>		
+	
+{% if profile.profile_bio %}
+
+	<p>
+		{{profile.profile_bio }}
+	</p>
+{% endif %}
+
+
+<hr/>
+<h4>Informations sur l'utilisateur</h4>
+<ul align="justify" style="list-style-type:none;">
+<li>ID: {{	profile.pk }}</li>
+<li># de points: {{	profile.points }}</li>
+<li>Prénom: {{	profile.user.first_name }}</li>
+<li>Nom: {{	profile.user.last_name }}</li>
+<li>Courriel: {{	profile.user.email }}</li>
+<li>Date d'inscription: {{	profile.user.date_joined }}</li>
+<li>Dernière connexion: {{	profile.user.last_login }}</li>
+<li>Dernière modification: {{	profile.date_modified }}</li>
+
+</ul>
+
+				<div class="card">
+  <h5 class="card-header">Abonné à</h5>
+  <div class="card-body">
+    
+    <p class="card-text">
+    		{% for following in profile.follows.all %}
+				<a class="clr-link" href="{% url 'profile' following.user.id %}">@{{ following }}</a> 
+	<a href="{% url 'unfollow' following.user.id %}">
+	<i class="fa fa-user-minus small" style="color:gray"></i>
+</a>
+<br/>
+
+			{% endfor %}
+
+    </p>
+    
+  </div>
+  <div class="card-footer text-end">
+    <a href="{% url 'follows' profile.user.id %}"
+    class="btn btn-sm btn-outline-secondary">Voir tout...</a>
+  </div>
+</div>
+			
+			
+
+			<br/><br/>
+
+			<div class="card">
+  <h5 class="card-header">Abonnements</h5>
+  <div class="card-body">
+    
+    <p class="card-text">
+    	{% for following in profile.followed_by.all|slice:3 %}
+				<a class="clr-link" href="{% url 'profile' following.user.id %}">@{{ following }}</a>&nbsp;&nbsp;
+
+				{% if following in profile.follows.all %}
+				 <a href="{% url 'unfollow' following.user.id %}">
+	<i class="fa fa-user-minus small" style="color:gray"></i>
+</a>
+				 {% else %}
+				 <a href="{% url 'follow' following.user.id %}">
+	<i class="fa fa-user-plus small" style="color:gray"></i>
+</a>
+				 {% endif %}
+
+
+				<br/>
+			{% endfor %}
+			<br/>
+			 
+
+			
+
+    </p>
+    
+  </div>
+  <div class="card-footer text-end">
+    <a href="{% url 'followers' profile.user.id %}"
+    class="btn btn-sm btn-outline-secondary">Voir tout...</a>
+  </div>
+</div>
+<br/>
+
+<form method=POST>
+{% csrf_token %}
+{% if profile in user.profile.follows.all %}
+ 	<button class="btn btn-outline-danger" name="follow" value="unfollow" type="submit">
+ 		Ne plus suivre @{{ profile.user.username|lower}}
+ 	</button>
+
+{% else %}
+	<button class="btn btn-outline-success" name="follow" value="follow" type="submit">
+ 		Suivre @{{ profile.user.username|lower}}
+ 	</button>
+
+{% endif %}
+
+</form>
+<br/>
+	
+	<!-- Check For Correct User -->
+	{% if request.user.id == profile.user.id %}
+		<a href="{% url 'update_user' %}" class="btn btn-outline-secondary">Mettre à jour le profil</a><br/><br/>
+	{% endif %}
+			</div>
+		</div>
+	</div>
+{% endif %}
+<script>
+	const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+	</script>
+{% endblock %}
+
+
+

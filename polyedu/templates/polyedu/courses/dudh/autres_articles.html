@@ -1,0 +1,64 @@
+ <!DOCTYPE html>
+<html lang="fr">
+  
+  {%include "fr/extensions/head.html"%}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/video.css')}}">
+<body>
+    <title>DUDH: Autres Articles - PolyEdu</title>
+          <!-- navbar -->
+      {%include "fr/extensions/navbar.html"%}
+
+          <!-- Body de Title -->
+  <div class="container">
+    <div class="main-video-container">
+        
+      <h1 class="main-vid-title">Les autres articles de la DUDH</h1>
+      <p>Cette page présente les autres articles de la déclaration universelle des droits de l'homme, présentés par des élèves de PEI de secondaire 4.</p>
+      <hr class="line">
+
+        {% for article in link_data %}
+        <br>
+        <strong>{{link_data[article]['title']}} - <a href="{{link_data[article]['link']}}">Voir plus</a></strong>
+        <p>{{link_data[article]['description']}}</p>
+        {% if article == "article 4" %}
+        <div class="main-video-container" style="height: 30em">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/fABV4-C-zJ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        {% endif %}
+        <p>Par: <i>{{link_data[article]['author']}}</i></p>
+        <br>
+        {% if link_data[-1] == link %}
+            <hr class="line">
+        {% else %}
+            <hr class="dashed">
+        {% endif %}
+        {% endfor %}
+        
+        <!--
+        <br>
+        <strong>Article Premier: <a href="">Lien</a></strong>
+        <p>Tous les êtres humains naissent libres et égaux en dignité et en droits. Ils sont doués de raison et de conscience et doivent agir les uns envers les autres dans un esprit de fraternité.</p>
+        <p>Par: <i>Auteurs</i></p>
+        <br>
+        
+      <hr class="dashed">
+      <strong>Article 2: <a href="">Lien</a></strong>
+      <ol>
+        <li>Chacun peut se prévaloir de tous les droits et de toutes les libertés proclamés dans la présente Déclaration, sans distinction aucune, notamment de race, de couleur, de sexe, de langue, de religion, d'opinion politique ou de toute autre opinion, d'origine nationale ou sociale, de fortune, de naissance ou de toute autre situation. </li>
+        <li>De plus, il ne sera fait aucune distinction fondée sur le statut politique, juridique ou international du pays ou du territoire dont une personne est ressortissante, que ce pays ou territoire soit indépendant, sous tutelle, non autonome ou soumis à une limitation quelconque de souveraineté.</li>
+      </ol>
+      <p>Par: <i>Auteurs</i></p>-->
+        
+      <script src="https://apis.google.com/js/platform.js"></script>
+
+<div class="g-ytsubscribe" data-channelid="UCMv63IiAIhZH7DuA-cXNOwg" data-layout="full" data-count="hidden"></div>
+    </div>
+      
+  </div>
+  <!-- footer -->
+      {%include "fr/extensions/footer.html"%}
+    {% include "fr/courses/dudh/list.html" %}
+  
+  <script src="{{ url_for('static', filename='js/video.js')}}"> </script>
+</body>
+</html>

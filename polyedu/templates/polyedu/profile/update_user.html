@@ -1,0 +1,22 @@
+{% extends 'polyedu/base.html' %}
+{% load static %}
+{% block content %}
+<br/>
+<div class="col-md-6 offset-md-3 container rounded my-5 p-4">
+<h1>Mettre à jour le profil</h1>
+<br/>
+
+<form method="POST" action="" enctype="multipart/form-data">
+	{% csrf_token %}
+	{{ user_form.as_p }}
+	<br/>
+	{{ profile_form.as_p}}
+
+	<br/><br/>
+  	<button type="submit" class="start-50 btn btn-secondary">Mettre à jour le profil</button>
+</form>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends 'polyedu/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/circuit_simulator.css' %}">
+<div id="sidebar-section">
+  <hr/>
+    <div id="sidebar" class="m-3 rounded">
+      <h2>Bibliothèque de composante</h2>
+      <div id="component-library">
+        <div>
+          <label class="form-label"for="component-select">Composante:</label>
+          <select id="component-select" class="form-select">
+            <option value="resistor">Résistor</option>
+            <option value="capacitor">Capaciteur</option>
+          </select>
+            <br/>
+          <label for="component-value" class="form-label" >Valeur de la composante:</label>
+          <input class="form-control" type="text" id="component-value">
+      <br/>
+          <button class="btn btn-primary" id="add-component-btn">Ajouter la composante</button>
+        </div>
+      </div>
+    </div>
+  
+    <button class="btn btn-secondary ms-3" id="sidebar-toggle-btn">Basculer la bibliothèque</button>
+    </div>
+    <div id="empty-circuit-message" class=" m-3  alert alert-warning" role="alert">
+      Aucune composante dans le circuit.
+    </div>
+  
+    <svg id="circuit-diagram" width="auto" height="300"></svg>
+  
+    <div class="rounded p-3 m-3 parameters container-box">
+      <h2>Paramètres du circuit:</h2>
+      <div id="current-type" class="m-3">
+        Type de sources d'alimentation:
+        <div class="form-check">
+          <input class="form-check-input" type="radio" value="dc"  name="current" id="dc" checked>
+          <label class="form-check-label" for="dc">
+            Courant Continu (DC)
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" value="ac"  name="current" id="ac">
+          <label class="form-check-label" for="ac">
+            Courant Alternatif (AC)
+          </label>
+        </div>
+      </div>
+      <div class="m-3">
+        <label for="voltage-input" class="form-label">Tension:</label>
+          <div class="voltage input-group">
+            
+            <span class="input-group-text">U</span>
+            <input type="text" id="voltage-input" class="form-control" placeholder="Tension ( en Volts )" aria-label="Tension ( en Volts )">
+            <span class="input-group-text">V</span>
+          </div>
+        </div>
+      
+        <div class="m-3">
+          <label for="frequency-input" class="form-label">Fréquence:</label>
+            <div class="frequency input-group">
+              
+              <span class="input-group-text">v</span>
+              <input type="text" id="frequency-input" class="form-control" value="0.5" placeholder="Fréquence (en Hertz)" aria-label="Fréquence (en Hertz)">
+              <span class="input-group-text">Hz</span>
+            </div>
+          </div>
+      <div class="button-group m-3">
+        <button class="btn btn-primary" id="simulation-toggle-btn">Simuler</button>
+        <button class="btn btn-secondary" id="calculate-btn">Calculer</button>
+      </div>
+    </div>
+    
+    <div id="result-area" class="rounded p-3 m-3 container-box">
+      <h2>Résultats du circuit:</h2>
+      <div class="m-3">
+        <h3>Données du circuit:</h3>
+        <p id="total-resistance"></p>
+        <p id="total-reactance"></p>
+        <p id="number-of-components"></p>
+      </div>
+      
+        <div class="m-3">
+          <h3>Résultats des calculs:</h3>
+          <p id="result-content"></p>
+        </div>
+        
+      
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+    <script src="{% static 'js/circuit_simulator.js' %}"></script>
+    {% endblock %}

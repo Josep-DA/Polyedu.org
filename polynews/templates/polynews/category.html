@@ -1,0 +1,42 @@
+{% extends 'polynews/base.html' %}
+{% load static %}
+{% block content %}
+
+<br/>
+<div class="rounded container py-2">
+<div class="p-4 p-md-5 mb-4 text-white rounded bg-dark" style="background-image: url({% get_media_prefix %}{{ category.category_image }}); background-size: cover; background-position-y: center;">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 fst-italic fw-bold" style="-webkit-text-stroke: 1px black;">{{category.title}}</h1>
+    </div>
+</div>
+
+<hr/>
+
+<div class="row mb-2">
+      
+    {% for new in news %}
+          <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-success-emphasis">{{ new.category }}</strong>
+                <h3 class="mb-0">{{ new.title }}</h3>
+                <div class="mb-1 text-body-secondary">{{ new.add_time }}</div>
+                <p class="mb-auto">{{ new.description }}</p>
+                <strong><a href="{% url 'newsarticle' new.id %}" class="clr-link text-warning icon-link gap-1 icon-link-hover stretched-link">
+                  Continuer à lire
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
+                    <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                  </svg>
+                </a></strong>
+              </div>
+              <div class="col-auto d-none d-lg-block">
+                <img src="{% get_media_prefix %}{{ new.image }}" width="200px" height="250px" class="d-inline-block align-middle" alt="">
+                
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+    
+        </div>
+</div>
+{% endblock %}

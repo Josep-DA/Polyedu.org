@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+  {%include "fr/extensions/head.html"%}
+    <body>
+      <title>Tableau à double entrée et corrélation - PolyEdu</title>
+          <!-- navbar -->
+      {%include "fr/extensions/navbar.html"%}
+      
+      {% include "fr/courses/correlation-lineaire/list.html" %}
+          <!-- Body de Title -->
+      <main class="container pt-2 rounded px-4">
+        <h1 class="mt-2">Tableau à double entrée et corrélation</h1>
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{url_for('fr.articles.articles')}}">Articles</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Tableau à double entrée et corrélation</li>
+    
+  </ol>
+</nav>
+  
+  <small>Écrit par: Renji Jenkins<br/>
+   08/05/23 </small><br/>
+
+        <h3 class="py-2">Chapitres de l'article: </h3>
+          <ol>
+            <li><a href="#1" class="clr-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-down" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4.854 14.854a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V3.5A2.5 2.5 0 0 1 6.5 1h8a.5.5 0 0 1 0 1h-8A1.5 1.5 0 0 0 5 3.5v9.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4z"/>
+</svg> Définition</a></li>
+          </ol>
+        <div id="1">
+        <hr class="dashed"/>
+          <p><strong>Le tableau à double entrée permet de représenter une distribution à deux varaibles. Il est souvent utilisé lorsque les données sont nombreuses.</strong>En observant la concentration des effectifs autour des diagonales du tableau, on peut déterminer s'il existe une corrélation linéaire entre les deux variables. On peut ensuite qualifier le sens et l'intensité de cette corrélation.
+          </p>
+          </div>
+
+        
+       
+        
+        <hr class="dashed"/>
+        <h2 class="py-2">Voir plus d'articles: </h2>
+      <div class="row mb-2">
+      <div class="col-md-6 target">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative card-article">
+        <div class="col p-4 d-flex flex-column position-static height240">
+          <strong class="d-inline-block mb-2 text-math">Mathématiques</strong>
+          <h3 class="mb-0">Coefficient de corrélation linéaire</h3>
+          <div class="mb-1 text-muted">04/05/23</div>
+          <p class="mb-auto description">Cet article contient des explications sur le coefficient de corrélation linéaire en statistiques de secondaire 4.</p>
+          <a href="{{url_for('fr.articles.coefficient_correlation')}}" class="stretched-link"></a>
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-md-6 target">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative card-article">
+        <div class="col p-4 d-flex flex-column position-static height240">
+          <strong class="d-inline-block mb-2 text-math">Mathématiques</strong>
+          <h3 class="mb-0">La corrélation linéaire</h3>
+          <div class="mb-1 text-muted">04/05/23</div>
+          <p class="mb-auto description">Cet article contient des explications sur la corrélation linéaire en statistiques de secondaire 4.</p>
+          <a href="{{url_for('fr.articles.correlation_lineaire')}}" class="stretched-link"></a>
+        </div>
+        
+      </div>
+    </div>
+</main>
+      <!-- footer -->
+      {%include "fr/extensions/footer.html"%}
+      <script src="{{url_for('static',filename='js/smoothscroll.js')}}"></script>
+    </body>
+</html>

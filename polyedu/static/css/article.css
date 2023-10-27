@@ -1,0 +1,47 @@
+.navigation-index ol {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.navigation-index ol li {
+    width: 100%;
+    margin: .25em;
+}
+
+
+.context-information {
+    background-color: var(--clr-container-bg);
+    border: 3px solid var(--clr-pdiv-bg);
+    border-radius: 2em;
+    margin: 2em 0;
+    padding: 1.5em;
+    box-shadow: 7px 7px var(--clr-pdiv-bg);
+}
+
+.context-information p {
+    margin: 0;
+}
+
+.context-information .sec-title::before {
+    content: '';
+    display: block;
+    width: .1em;
+    height: 100%;
+    background-color: black;
+}
+
+.sec-title {
+    display: flex;
+    margin-bottom: 1em;
+    max-width: 70%;
+}
+
+.sec-title::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 2px;
+    background-color: yellow
+    
+}

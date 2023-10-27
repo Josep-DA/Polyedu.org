@@ -1,0 +1,129 @@
+{% extends 'polyedu/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/article.css' %}"><br/>
+
+		
+
+
+	
+<br/>
+	
+
+
+
+          
+      <main class="container pt-2 rounded px-4">
+		<div class="row"><div class="col-11">
+        <h1 class="mt-2">{{ article.title }}</h1>
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'articles' %}">Articles</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ article.title }}</li>
+    
+  </ol>
+</nav>
+  
+  <small>Écrit par: @<a class="clr-link fw-bold" href="{% url 'profile' user.id %}">{{ article.user.username }}</a><br/>
+	({{ article.created_at}}) </small><br/>
+	{{ article.number_of_likes }} Likes </div> 
+	<div class="align-middle col-1">
+	{% if user in article.likes.all %}
+	  <a class="btn" href="{% url 'article_like' article.id %}">
+<i class="fa-solid fa-heart" style="color:red"></i>
+	  </a>
+	{% else %}
+		<a class="btn" href="{% url 'article_like' article.id %}">
+<i class="fa fa-heart-o" style="color:red"></i>
+		</a>
+	{% endif %}
+	
+	
+	<!-- Add a button or link in your template to trigger the copyToClipboard() function -->
+	<button class="btn align-middle" onclick="copyUrlToClipboard()" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--clr-text)" class="bi bi-share" viewBox="0 0 16 16">
+		<path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+	  </svg></button>
+
+	  <button class="btn align-middle" onclick="copyCitationToClipboard()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--clr-text)" class="bi bi-chat-left-quote" viewBox="0 0 16 16">
+		<path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+		<path d="M7.066 4.76A1.665 1.665 0 0 0 4 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112zm4 0A1.665 1.665 0 0 0 8 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112z"/>
+	  </svg></button>
+	
+</div></div>
+	<br/>
+
+   <!--<h3 class="py-2">Chapitres de l'article: </h3>
+          <ol>
+            <li><a href="#1" class="clr-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-down" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4.854 14.854a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V3.5A2.5 2.5 0 0 1 6.5 1h8a.5.5 0 0 1 0 1h-8A1.5 1.5 0 0 0 5 3.5v9.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4z"/>
+</svg> #1</a></li>
+          </ol>
+        <div id="1">-->
+			<section class="context-information">{{ article.body|safe }}</section>
+           <!--</div>-->
+        
+        
+        <hr class="dashed"/>
+        <h2 class="py-2">Voir plus d'articles: </h2>
+		<div class="row mb-2">
+			{% for article in articles %}
+		  <div class="col-md-6 target">
+			<div class="row g-0 border rounded overflow-hidden flex-md-row mb-1 shadow-sm h-md-250 position-relative card-article">
+			  <div class="col p-4 d-flex flex-column position-static height240">
+				<strong class="d-inline-block mb-2" style="color: {{ article.category.color }}">{{ article.category.name }}</strong>
+				<h3 class="mb-0">{{ article.title }}</h3>
+				<div class="mb-1 text-muted">{{ article.created_at }}</div>
+				<p class="card-text mb-auto description">{{ article.desc }}</p>
+			  </div>
+			  <a href="{% url 'article_show' article.id %}" class="stretched-link"></a>
+			  {% if article.poster_id == current_user.id %}
+				<div class="container" style="position: relative;">
+				  Contrôles d'administateur:
+				  <a href="{% url 'delete_article' article.id %}" style="z-index: 2;
+				  position: relative;"><i class="fa fa-trash" style="color:red"></i></a> 
+				  <a href="{% url 'edit_article' article.id %}" style="z-index: 2;
+				  position: relative;"><i class="fa fa-edit" style="color:gray"></i></a>
+				</div>
+			  {% endif %}
+			</div>
+		  </div>
+		{% endfor %}
+		
+		  </div>
+</main>
+<script src="{% static 'smoothscroll.js' %}"></script>
+<!-- Include this JavaScript code in your template -->
+<script>
+	const date = new Date();
+
+	function copyUrlToClipboard() {
+	  /* Create a dummy input element */
+	  var dummyInput = document.createElement("input");
+	  /* Set its value to the current URL */
+	  dummyInput.value = window.location.href;
+	  /* Append the input element to the document */
+	  document.body.appendChild(dummyInput);
+	  /* Select the input element's content */
+	  dummyInput.select();
+	  /* Copy the selected content to the clipboard */
+	  document.execCommand("copy");
+	  /* Remove the input element from the document */
+	  document.body.removeChild(dummyInput);
+	}
+
+	function copyCitationToClipboard() {
+	  /* Create a dummy input element */
+	  var dummyInput = document.createElement("input");
+	  /* Set its value to the current URL */
+	  dummyInput.value = "@{{ article.user.username }}. « {{ article.title }} », PolyEdu.org, {{ article.created_at }}, [ " + window.location.href + " ] (" + date + ")" ;
+	  /* Append the input element to the document */
+	  document.body.appendChild(dummyInput);
+	  /* Select the input element's content */
+	  dummyInput.select();
+	  /* Copy the selected content to the clipboard */
+	  document.execCommand("copy");
+	  /* Remove the input element from the document */
+	  document.body.removeChild(dummyInput);
+	}
+	</script>
+{% endblock %}

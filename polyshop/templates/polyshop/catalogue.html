@@ -1,0 +1,35 @@
+{% extends 'polyshop/base.html' %}
+{% load static %}
+{% block content %}
+<br/>
+<div class="container rounded p-4 mb-4">
+<h1>Catalogue</h1>
+<hr/>
+<div class="row mb-2">
+      
+    {% for item in items %}
+          <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-success-emphasis">{{ item.category }}</strong>
+                <h3 class="mb-0">{{ item.title }}</h3>
+                <div class="mb-1 text-body-secondary">{{ item.availability }}</div>
+                <p class="mb-auto">{{ item.description }}</p>
+                <strong><a href="{% url 'item' item.id %}" class="clr-link text-warning icon-link gap-1 icon-link-hover stretched-link">
+                  Voir le produit
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
+                    <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                  </svg>
+                </a></strong>
+              </div>
+              <div class="col-auto d-none d-lg-block">
+                <img src="{% get_media_prefix %}{{ item.image }}" width="200px" height="250px" class="d-inline-block align-middle" alt="">
+                
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+    
+        </div>
+</div>
+{% endblock %}

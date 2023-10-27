@@ -1,0 +1,88 @@
+{% load static %}
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/c08eb42585.js" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="{% static 'css/filtering.css' %}">
+    <link rel="stylesheet" href="{% static 'css/thswitch.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/filtering.js' %}"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  </head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9SQB6TDVTK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9SQB6TDVTK');
+</script>
+  <body>
+
+    {% include 'polynews/navbar.html'%}
+      {% if messages %}
+        {% for message in messages %}
+          <div class=" alert alert-warning alert-dismissible fade show" role="alert">
+            
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  
+          </div>
+        {% endfor %}
+      {% endif %}
+      <div class="mx-5">
+  
+        <div class="nav-scroller py-1 mb-3 border-bottom">
+          <nav class="nav nav-underline justify-content-between">
+            <a class="nav-item nav-link clr-link link-body-emphasis" href="{% url 'articles' %}">Articles PolyEdu</a>
+            {% for category in categories %}
+            <a class="nav-item nav-link clr-link link-body-emphasis" href="{% url 'categories' category.title %}">{{category.title}}</a>
+            {% endfor %}
+            <a class="nav-item nav-link clr-link link-body-emphasis" href="{% url 'polynews' %}">Toutes les catégories</a>
+          </nav>
+        </div>
+      </div>
+      {% block content %}
+      {% endblock %}
+    </div>
+
+    
+    <div class="mx-5">
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <p class="col-md-4 mb-0 text-body-secondary">2022-2023 PolyEdu™ par Renji Jenkins</p>
+    
+        <a href="#" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+          <img src="{% static 'images/logo.png' %}" width="40px" height="40px" class="d-inline-block align-middle" alt="">
+        </a>
+    
+        <ul class="nav col-md-4 justify-content-end">
+          <li class="nav-item"><a href="{% url 'home' %}" class="fw-bold nav-link px-2 text-body-secondary clr-text">PolyEdu<sub class="text-danger">ALPHA</sub></a></li>
+          <li class="nav-item"><a href="{% url 'polynews' %}" class="fw-bold nav-link px-2 text-body-secondary clr-text">PolyNews</a></li>
+          <li class="nav-item"><a href="{% url 'polyshop' %}" class="fw-bold nav-link px-2 text-body-secondary clr-text">PolyShop</a></li>
+        </ul>
+      </footer>
+    </div>
+
+
+<script src="{% static 'scrolltop.js' %}"></script>
+<script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
+
+<script>
+  const swup = new Swup();  
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  <script src="{% static 'js/thswitch.js' %}"></script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,30 @@
+ <!DOCTYPE html>
+<html lang="fr">
+  {%include "fr/extensions/head.html"%}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/video.css')}}">
+<body>
+    <title>Guide Méthodoloque - PolyEdu</title>
+          <!-- navbar -->
+      {%include "fr/extensions/navbar.html"%}
+
+          <!-- Body de Title -->
+  <div class="container">
+    <div class="main-video-container">
+      
+      <embed src="{{url_for('static', filename='pdf/GuideMethodologiquePEI.pdf')}}" type="application/pdf" width="100%" height="600px" />
+      <h2 class="main-vid-title">Guide Méthodologique (PDF)</h2>
+      <script src="https://apis.google.com/js/platform.js"></script>
+
+<div class="g-ytsubscribe" data-channelid="UCMv63IiAIhZH7DuA-cXNOwg" data-layout="full" data-count="hidden"></div>
+      <p></p>Ce document est le document officiel utilisé à la Polyvalente de Charlesbourg pour la rédaction de documents au PEI.</p>
+    </div>
+
+    {% include "fr/courses/GuideMethodologique/list.html"%}
+      
+  </div>
+  <!-- footer -->
+      {%include "fr/extensions/footer.html"%}
+  
+  <script src="{{ url_for('static', filename='js/video.js')}}"> </script>
+</body>
+</html>

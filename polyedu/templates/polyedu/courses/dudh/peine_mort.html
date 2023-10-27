@@ -1,0 +1,87 @@
+ <!DOCTYPE html>
+<html lang="fr">
+
+{%include "fr/extensions/head.html"%}
+<!-- Body de Title -->
+<title>La peine de mort</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/video.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dudh.css')}}">
+    
+<body>
+    <!-- navbar -->
+    {%include "fr/extensions/navbar.html"%}
+
+    {% include "fr/courses/dudh/list.html" %}
+        
+    <div class="container">
+        <div class="main-video-container">
+        
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/HkAjY45jfp8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            
+            <h2 class="main-vid-title">La peine de mort</h2>
+            
+            <div class="g-ytsubscribe" data-channelid="UCMv63IiAIhZH7DuA-cXNOwg" data-layout="full" data-count="hidden">
+                
+            </div>
+        </div>
+
+        <!-- Joseph's work -->
+
+        <section class="content pintro">
+            <div class="container-medium">
+                <h3 class="title">La peine de mort<br><i style="font-size:.8em;color: gray">Un autre exemple en lien avec l'article 3.</i></h3>
+                <div class="container-text">
+                    <p class="text">
+                        La peine de mort est un type de justice punitive qui consiste à retirer la vie d’un meurtrier (coupable d’un meutre volontaire) afin d’équilibrer le mal commis. Pour condamner une personne à mort, il faut pouvoir prouver qu’elle est coupable du crime et que c'était volontaire.
+                    </p>
+                    <p class="text">
+                        Cette peine est considérée par certains comme immorale, puisque tuer quelqu’un signifie lui retirer son droit à la vie, un droit fondamental. Tuer un criminel qui a commis une offense majeure ne réparera pas son crime. Il y a également le fait que la personne dénommée coupable ne soit pas vraiment coupable, et qu’il est impossible de retourner en arrière après avoir tué cette personne innocente.
+                        <br><br>
+                        Ceci dit, la peine de mort est encore sujet de nombreux débats, mais selon vous:
+                        <i style="color: ;text-decoration: underline">Est-il éthique de condamner un individu à mort pour un crime sévère? Pourquoi?</i>
+                    </p>
+                    <p class="text">
+                        Voici quelques argument regardant la peine de mort.
+                        <br>
+                        <i style="font-size:.8em;color: red">Attention! - Veuillez prendre note que ceci est une analyse ne représentant en aucun cas nos valeurs.</i>
+                    </p>
+
+                    <h5>Mal:</h5>
+                    <ul class="container-list">
+                        <li class="li-text">
+                            Ça nuit au droit à la vie, un droit fondamental.
+                        </li>
+                        <li class="li-text">
+                            Le criminel n’aura également jamais l’opportunité de lui-même réparer ou adoucir la sévérité de son crime.
+                        </li>
+                        <li class="li-text">
+                            Impossibilité de retour en arrière pour les personnes non-coupables.
+                        </li>
+                    </ul>
+
+                    <h5>Bonne:</h5>
+                    <ul class="container-list">
+                        <li class="li-text">
+                            Les personnes condamnées à mort ne représente plus de menace pour la société
+                        </li>
+                        <li class="li-text">
+                            La victime a perdu sa vie, alors pourquoi le coupable aurait-il la chance de pouvoir garder la sienne. On ne décide pas qui vit, qui meurt, mais les meurtriers le font. La peine de mort est là pour balancer le mal par le bien.
+                        </li>
+                        <li class="li-text">
+                            C’est un outil dissuasif pour la population et cela permet en quelque sorte d' établir le bien.
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    
+    <!-- footer -->
+    {%include "fr/extensions/footer.html"%}
+
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <script src="{{ url_for('static', filename='js/video.js')}}"> </script>
+</body>
+</html>

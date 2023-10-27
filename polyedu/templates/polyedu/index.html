@@ -1,0 +1,79 @@
+{% extends 'polyedu/base.html' %}
+{% load static %}
+{% block content %}
+  
+  <!-- Body Contents -->
+  <main>
+
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/carousel_thumbnail_1.png' %}"  class="d-block w-100" style="object-fit: cover;" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Plus de 300 utilisateurs actifs</h5>
+        <p>Nous avons une communauté de 300 utilisateurs actifs et plus de 57000 visites du site.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/carousel_thumbnail_2.png' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Nos Articles</h5>
+        <p>Nous offrons des documents informatifs détaillées et fiables.</p>
+        <a class="btn btn-lg btn-secondary" href="{% url 'articles' %}">Accéder à la liste d'articles</a>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+  <iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1anZkF27iEevW8SyOEC3fpDnCT-E1fWk3vievepw90v0&font=Default&lang=en&initial_zoom=2&height=650' width='100%' height='650' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe>
+  <div class="container marketing rounded">
+  <br/>
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+      <div class="col-lg-6 ">
+        <center><svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" fill="currentColor" class="pb-2 bi bi-journal-richtext" viewBox="0 0 16 16">
+  <path d="M7.5 3.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zm-.861 1.542 1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047L11 4.75V7a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 7v-.5s1.54-1.274 1.639-1.208zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+  <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
+  <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
+</svg> 
+
+        <h2>Bibliographie</h2>
+        <p>Nos sources pour tout le site et son contenu sont à l'intérieur de cette bibliographie:</p>
+        <p><a class="btn btn-secondary" href="{% url 'bibliography' %}">Accéder à la bibliographie »</a></p></center>
+      </div>
+      <!-- /.col-lg-4 -->
+      <div class="col-lg-6">
+          <center><svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+  <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+</svg>
+
+        <h2>Ressources Externes</h2>
+        <p>Nous offrons une liste de ressources externes par catégories qui pourraient possiblement aider les étudiants.</p>
+        <p><a class="btn btn-secondary" href="{% url 'ressources_externe' %}">Accéder aux Ressources Externes »</a></p></center>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+
+
+    
+    
+  </div><!-- /.container -->
+
+
+  {% endblock %}

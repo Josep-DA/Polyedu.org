@@ -1,0 +1,79 @@
+{% extends 'polyedu/base.html' %}
+{% load static %}
+{% block content %}
+
+
+          <!-- Body de Title -->
+          <br/>
+  <div class="container transition-fade rounded p-4">
+    
+   
+    <h1>Toutes les sources</h1>
+    <input class="form-control" id="Search" type="text"  placeholder="Recherche.." onkeyup="searchDivs()"> 
+      <br/>
+      <p>Voici un modèle de source:</p>
+    <div class="col-md-6 target">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative card-article">
+        <div class="col p-4 d-flex flex-column position-static height240">
+          <strong class="d-inline-block mb-2" >Nom, Prénom.</strong>
+          <h3 class="mb-0">Titre</h3>
+          <div class="mb-1 text-muted">Provenance de la publication, Date de création, Nombre de pages.</div>
+          <p class="mb-auto description">Repérée à: <br/><a href="#Lien" class="text-decoration-none clr-link fw-bold">[Lien Internet]</a>, (Date de consultation).</p>
+          <a href="#Link" class="stretched-link"></a>
+        </div>
+        
+      </div>
+    </div>
+    <hr/>
+    <div class="row mb-2">
+      {% for source in sources %}
+        <div class="col-md-6 target">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative card-article">
+            <div class="col p-4 d-flex flex-column position-static height240">
+              <strong class="d-inline-block mb-2" >{{ source.author_name }}, {{ source.author_first_name }}</strong>
+              <h3 class="mb-0">{{ source.title }}</h3>
+              <div class="mb-1 text-muted">{{ source.published_from }}, {{ source.date_creation }}, {{ source.number_of_pages }} pages.</div>
+              <p class="mb-auto description">Repérée à: <br/><a href="{{ source.url_link }}" class="clr-link fw-bold text-decoration-none">[Lien Internet]</a>, ({{ source.date_consultation }}).</p>
+              <a href="{{ source.url_link }}" class="stretched-link"></a>
+            </div>
+            
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    </div>
+
+    
+      
+  </div>
+
+  <script>function searchDivs() {
+  var input = document.getElementById("Search");
+  var filter = input.value.toLowerCase();
+  var nodes = document.getElementsByClassName('target');
+  
+
+  for (i = 0; i < nodes.length; i++) {
+    if (nodes[i].innerText.toLowerCase().includes(filter)) {
+      nodes[i].style.display = "list-item";
+    } else {
+      nodes[i].style.display = "none";
+    }
+
+    
+  }
+}
+
+    const accordion = document.getElementsByClassName('acontainer');
+
+for (i=0; i<accordion.length; i++) {
+  accordion[i].addEventListener('click', function () {
+    this.classList.toggle('active')
+  })
+}
+
+        </script>
+
+
+
+{% endblock %}

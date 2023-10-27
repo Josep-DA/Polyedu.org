@@ -1,0 +1,56 @@
+{% extends 'polyedu/base.html' %}
+{% load static %}
+{% block content %}
+
+          <!-- Body de Title -->
+      <main class="container pt-2 rounded">
+  
+        
+        <h1>Exercices</h1>
+        <p><strong>Les exercices vous permettront de vérifier votre acquisition de connaissances apprises sur les cours et articles de PolyEdu par différentes manières.</strong></p>
+        <hr class="dashed"/>
+  <input class="form-control" id="Search" type="text"  placeholder="Recherche.." onkeyup="searchDivs()"> <a class="clr-link text-warning" href="https://docs.google.com/forms/d/e/1FAIpQLSe9DOAmCagpJbcRBVhJIOBCKoPE85_qdmOhlZ-3NAR2VYovrQ/viewform?usp=sf_link">Vous ne trouvez pas votre exercice recherché? Faites-une demande de création d'exercices!</a> <br/><br/>
+        
+  <div class="row mb-2">
+    {% for exercice in exercices %}
+    <div class="col-md-6 target">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative card-article">
+        <div class="col p-4 d-flex flex-column position-static height240">
+          <strong class="d-inline-block mb-2" >{{ exercice.category }}</strong>
+          <h3 class="mb-0">{{ exercice.title }}</h3>
+          <div class="mb-1 text-muted">{{ exercice.created_at }}</div>
+          <p class="mb-auto description">{{ exercice.desc }}</p>
+          <a href="{% url 'exercice_show' exercice.id %}" class="stretched-link"></a>
+        </div>
+        
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+
+  
+
+</main>
+
+      <script>function searchDivs() {
+  var input = document.getElementById("Search");
+  var filter = input.value.toLowerCase();
+  var nodes = document.getElementsByClassName('target');
+  
+
+  for (i = 0; i < nodes.length; i++) {
+    if (nodes[i].innerText.toLowerCase().includes(filter)) {
+      nodes[i].style.display = "block";
+    } else {
+      nodes[i].style.display = "none";
+    }
+
+    
+  }
+}
+      </script>
+    </body>
+</html>
+
+{% endblock %}

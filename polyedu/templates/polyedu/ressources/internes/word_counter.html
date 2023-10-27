@@ -1,0 +1,17 @@
+{% extends 'polyedu/base.html' %}
+{% load static %}
+{% block content %}
+
+    <link rel="stylesheet" href="{% static 'css/word_counter.css' %}">
+
+
+    <div class="word-counter-container">
+        <h2>Compteur de mots</h2>
+        <textarea name="" id="" cols="30" rows="10" class="words"></textarea>
+        <button class="count-btn">Compteur de mots</button>
+        <div class="word-count">Nombre de mots: <span>0</span></div>
+        <div class="character-count">Nombre de caractères: <span>0</span></div>
+    </div>
+    <script src="{% static 'js/word_counter.js' %}"></script>
+
+    {% endblock %}

@@ -1,0 +1,298 @@
+ <!DOCTYPE html>
+<html lang="fr">
+  {%include "fr/extensions/head.html"%}
+    <body>
+      <title>Les noms - PolyEdu</title>
+          <!-- navbar -->
+      {%include "fr/extensions/navbar.html"%}
+      
+      {% include "fr/courses/classes-de-mots/list.html" %}
+          <!-- Body de Title -->
+      <main class="container pt-2 rounded px-4">
+        <h1 class="mt-2">Les noms</h1>
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{url_for('fr.articles.articles')}}">Articles</a></li>
+    <li class="breadcrumb-item"><a href="{{url_for('fr.articles.classesdemots')}}">Classes de mots</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Les noms</li>
+    
+  </ol>
+</nav>
+  
+  <small>Écrit par: Renji Jenkins<br/>
+   27/02/23 </small><br/>
+
+        <h3 class="py-2">Chapitres de l'article: </h3>
+          <ol>
+            <li><a href="#definition" class="clr-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-down" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4.854 14.854a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V3.5A2.5 2.5 0 0 1 6.5 1h8a.5.5 0 0 1 0 1h-8A1.5 1.5 0 0 0 5 3.5v9.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4z"/>
+</svg> Définition des noms</a></li>
+            <li><a href="#caracteristiques" class="clr-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-down" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4.854 14.854a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V3.5A2.5 2.5 0 0 1 6.5 1h8a.5.5 0 0 1 0 1h-8A1.5 1.5 0 0 0 5 3.5v9.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4z"/>
+</svg> Les caractéristiques des noms</a></li>
+            <li><a href="#types" class="clr-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-down" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4.854 14.854a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V3.5A2.5 2.5 0 0 1 6.5 1h8a.5.5 0 0 1 0 1h-8A1.5 1.5 0 0 0 5 3.5v9.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4z"/>
+</svg> Les noms communs et les noms propres</a></li>
+          </ol>
+        <div id="definition">
+        <hr class="dashed"/>
+  <strong>Définition: 
+    Les noms sont des mots qui sont utilisés pour désigner des personnes, des lieux, des objets, des idées, des concepts, des animaux, etc. Il est toujours le noyau d’un groupe nominal, aussi appelé le groupe du nom (GN).</strong>
+<br/><br/>
+          <p>Les noms sont des éléments clés de la grammaire de toute langue. En général, ils sont utilisés comme sujets ou objets d'une phrase, et peuvent être accompagnés d'adjectifs, de verbes et d'autres mots pour fournir des informations supplémentaires.</p>
+          </div>
+        
+        
+        <div id="caracteristiques">
+          <hr class="dashed"/>
+          <h3 class="py-2">Les caractéristiques des noms</h3>
+          <p>Les noms peuvent être classés en différentes catégories en fonction de leur genre, de leur nombre et de leur fonction dans une phrase. Par exemple, en français, les noms peuvent être masculins ou féminins, singuliers ou pluriels, et peuvent être utilisés comme sujets, objets directs ou objets indirects.</p>
+<ol>
+          <li><strong>Le genre du nom</strong></li>
+          <p>Le nom a généralement un genre (masculin ou féminin) qui lui est propre, donc ne varie pas. En voici quelques exemples:</p>
+          <table class="table table-dark table-striped table-hover table-bordered">
+          
+  <thead>
+    <tr>
+              <td colspan="2">
+        <table class="table mb-0">
+          <center>Exemples de noms invariables en genre</center>
+        </table>
+      </td>
+            </tr>
+    <tr>
+      
+      <th scope="col">Noms Masculins</th>
+      <th scope="col">Noms Féminins</th>
+      
+    </tr>
+  </thead>
+    <tbody><tr>
+      <td>Un <strong>pays</strong></td>
+      <td>Une <strong>maison</strong></td>
+    </tr>
+      <tr>
+      <td>Un <strong>père</strong></td>
+      <td>Une <strong>mère</strong></td>
+    </tr>
+  </tbody>
+</table>
+          <p>Certains noms peuvent toutefois varier en genre. En voici quelques autres exemples:</p>
+          <table class="table table-dark table-striped table-hover table-bordered">
+          
+  <thead>
+    <tr>
+              <td colspan="2">
+        <table class="table mb-0">
+          <center>Exemples de noms variables en genre</center>
+        </table>
+      </td>
+            </tr>
+    <tr>
+      
+      <th scope="col">Noms Masculins</th>
+      <th scope="col">Noms Féminins</th>
+      
+    </tr>
+  </thead>
+    <tbody><tr>
+      <td>Un <strong>ami</strong></td>
+      <td>Une <strong>amie</strong></td>
+    </tr>
+      <tr>
+      <td>Un <strong>Canadien</strong></td>
+      <td>Une <strong>Canadienne</strong></td>
+    </tr>
+      <tr>
+      <td>Un <strong>artiste</strong></td>
+      <td>Une <strong>artiste</strong></td>
+    </tr>
+      <tr>
+      <td>Un <strong>constructeur</strong></td>
+      <td>Une <strong>constructrice</strong></td>
+    </tr>
+  </tbody>
+</table>
+          <li><strong>Le nombre du nom</strong></li>
+  <p>Le nom peut généralement varier en nombre. Ils peuvent être soit singulier ou pluriel. Parfois, les noms pluriels ne diffèrent pas de leur version au singulier. En voici quelques exemples:</p>
+          <table class="table table-dark table-striped table-hover table-bordered">
+          
+  <thead>
+    <tr>
+              <td colspan="2">
+        <table class="table mb-0">
+          <center>Exemples de noms variables en nombre</center>
+        </table>
+      </td>
+            </tr>
+    <tr>
+      
+      <th scope="col">Version au singulier</th>
+      <th scope="col">Version au pluriel</th>
+      
+    </tr>
+  </thead>
+    <tbody><tr>
+      <td>Le <strong>journal</strong></td>
+      <td>Les <strong>journaux</strong></td>
+    </tr>
+      <tr>
+      <td>Une <strong>recette</strong></td>
+      <td>Des <strong>recettes</strong></td>
+    </tr>
+      <tr>
+      <td>La <strong>souris</strong></td>
+      <td>Les <strong>souris</strong></td>
+    </tr>
+  </tbody>
+</table>
+  
+ <p>Certains noms ne peuvent pas varier en nombre. C’est le cas, par exemple, des mots gens, funérailles, fiançailles et victuailles qui sont toujours employés au pluriel.</p>
+
+
+<p>Les noms amour, délice et orgue, quant à eux, peuvent changer de genre lorsqu’ils changent de nombre :</p>
+
+  <table class="table table-dark table-striped table-hover table-bordered">
+          
+  <thead>
+    <tr>
+              <td colspan="2">
+        <table class="table mb-0">
+          <center>Exemples de noms variables en genre lors du changement en nombre</center>
+        </table>
+      </td>
+            </tr>
+    <tr>
+      
+      <th scope="col">Version au singulier</th>
+      <th scope="col">Version au pluriel</th>
+      
+    </tr>
+  </thead>
+    <tbody><tr>
+      <td>Le <strong>premier</strong> amour</td>
+      <td>Les <strong>premières</strong> amours</td>
+    </tr>
+      <tr>
+      <td>Un grand <strong>délice</strong></td>
+      <td>De grandes<strong>délices</strong></td>
+    </tr>
+      <tr>
+      <td>Un bel <strong>orgue</strong></td>
+      <td>De belles <strong>orgues</strong></td>
+    </tr>
+  </tbody>
+</table>
+  
+Finalement, certains noms changent de sens lorsqu’ils changent de nombre :
+
+une <strong>vacance</strong> (quelque chose qui doit être comblé)/des <strong>vacances</strong> (un temps de repos)
+un <strong>ciseau</strong> (outil pour travailler le bois)/des <strong>ciseaux</strong> (outil pour découper)
+une <strong>menotte</strong> (une petite main)/des <strong>menottes</strong> (objet de métal qui s’attache au poignet)
+
+          <!--<li><strong>Le nom donneur d'accord</strong></li>
+  //
+          <li><strong>Les formes du nom</strong></li>
+  //-->
+        </ol>
+
+        </div>
+        <div id="types">
+          <hr class="dashed"/>
+          <h3 class="py-2">Les types de noms</h3>
+          <p>Dans la grammaire moderne, il existe deux types de noms: Les noms communs et les noms propres.</p> <p>Le nom commun commence toujours par une lettre minuscule et est souvent précédé d’<a href="{{url_for('fr.articles.determinants')}}" class="clr-link">un déterminant</a>. C’est un mot qui désigne des personnes, des choses, des lieux, des sentiments, etc.</p><p>Le nom propre commence toujours par une lettre majuscule. C’est un mot qui désigne des êtres, des choses ou des notions en lui donnant un sens unique.
+ 
+Dans le groupe nominal (GN), le nom propre peut être accompagné ou non d’<a href="{{url_for('fr.articles.determinants')}}" class="clr-link">un déterminant</a>.</p>
+          
+          <p>En voici quelques exemples de chaque type:</p>
+        <table class="table table-dark table-striped table-hover table-bordered">
+          
+  <thead>
+    <tr>
+              <td colspan="2">
+        <table class="table mb-0">
+          <center>Les deux types de noms</center>
+        </table>
+      </td>
+            </tr>
+    <tr>
+      
+      <th scope="col">Noms communs</th>
+      <th scope="col">Noms propres</th>
+      
+    </tr>
+  </thead>
+    <tbody><tr>
+      <td>Un <strong>scientifique</strong> (personne)</td>
+      <td><strong>Philippe</strong> (être)</td>
+    </tr>
+      <tr>
+      <td>Une <strong>voiture</strong> (objet)</td>
+      <td>Une <strong>Canadienne</strong> (peuple)</td>
+    </tr>
+      <tr>
+      <td>Une <strong>maison</strong> (lieu)</td>
+      <td>La <strong>France</strong> (lieu)</td>
+    </tr>
+      <tr>
+      <td>La <strong>peur</strong> (sentiments)</td>
+      <td>L'<strong>Amour</strong> (notion)</td>
+    </tr>
+    <tr>
+      <td>L'<strong>église</strong> (lieu)</td>
+      <td>L'<strong>Église</strong> (institution)</td>
+    </tr>
+        <tr>
+      <td>La <strong>tristesse</strong> (sentiments)</td>
+      <td>Le <strong>Moyen Âge</strong> (période historique)</td>
+    </tr>
+      <tr>
+      <td>L'<strong>enseignant</strong> (être)</td>
+      <td><strong>Zeus</strong> (divinités)</td>
+    </tr>
+      <tr>
+      <td>L'<strong>école</strong> (objet)</td>
+      <td>Le <strong>Nord</strong> canadien (points cardinaux)</td>
+    </tr>
+      <tr>
+      <td>L'<strong>espoir</strong> (sentiments)</td>
+      <td><strong>Noël</strong> (fêtes)</td>
+    </tr>
+  </tbody>
+</table>
+
+        </div>
+        
+          <hr/>
+        <h2 class="py-2">Voir plus d'articles: </h2>
+      <div class="row mb-2">
+      <div class="col-md-6 target">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative card-article">
+        <div class="col p-4 d-flex flex-column position-static height240">
+          <strong class="d-inline-block mb-2 text-primary">Français</strong>
+          <h3 class="mb-0">Les classes de mots</h3>
+          <div class="mb-1 text-muted">27/02/23</div>
+          <p class="card-text mb-auto description">Ceci est un article sur les caractéristiques des mots variables et invariables de la catégorie sur les classes de mots.</p>
+          <a href="{{url_for('fr.articles.classesdemots')}}" class="stretched-link"></a>
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-md-6 target">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative card-article">
+        <div class="col p-4 d-flex flex-column position-static height240">
+          <strong class="d-inline-block mb-2 text-warning">Culture et citoyenneté québécoise</strong>
+          <h3 class="mb-0">Qu'est-ce que la DUDH?</h3>
+          <div class="mb-1 text-muted">21/02/23</div>
+          <p class="mb-auto description">Cet article explique la création et l'utilité de la déclaration universelle des droits de l'homme.</p>
+          <a href="{{url_for('fr.courses.dudh1')}}" class="stretched-link"></a>
+        </div>
+        
+      </div>
+    </div>
+</main>
+      <!-- footer -->
+      {%include "fr/extensions/footer.html"%}
+      <script src="{{url_for('static',filename='js/smoothscroll.js')}}"></script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+ <!DOCTYPE html>
+<html lang="fr">
+  
+  {%include "fr/extensions/head.html"%}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/video.css')}}">
+<body>
+    <title>Création d'un Travail Court - PolyEdu</title>
+          <!-- navbar -->
+      {%include "fr/extensions/navbar.html"%}
+
+          <!-- Body de Title -->
+  <div class="container">
+    <div class="main-video-container">
+      <iframe width="736" height="400" src="https://www.youtube.com/embed/GRrbYeQatMo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="main-video"></iframe>
+      <h2 class="main-vid-title">Création d'un Travail Court</h3>
+      <script src="https://apis.google.com/js/platform.js"></script>
+
+<div class="g-ytsubscribe" data-channelid="UCMv63IiAIhZH7DuA-cXNOwg" data-layout="full" data-count="hidden"></div>
+      <p>Cette vidéo démontre comment créer un travail court selon les normes du PEI.</p>
+    </div>
+
+    {%include "fr/courses/GuideMethodologique/list.html"%}
+      
+  </div>
+  <!-- footer -->
+      {%include "fr/extensions/footer.html"%}
+  
+  <script src="{{ url_for('static', filename='js/video.js')}}"> </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+{% extends 'polynews/base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    /* stylelint-disable stylistic/selector-list-comma-newline-after */
+
+.blog-header-logo {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+  font-size: 2.25rem;
+}
+
+.blog-header-logo:hover {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+}
+
+.flex-auto {
+  flex: 0 0 auto;
+}
+
+.h-250 { height: 250px; }
+@media (min-width: 768px) {
+  .h-md-250 { height: 250px; }
+}
+
+/* Pagination */
+.blog-pagination {
+  margin-bottom: 4rem;
+}
+
+/*
+ * Blog posts
+ */
+.blog-post {
+  margin-bottom: 4rem;
+}
+.blog-post-meta {
+  margin-bottom: 1.25rem;
+  color: #727272;
+}
+
+</style>
+
+
+  <main class="mx-5">
+    <div class="p-4 p-md-5 mb-4 border rounded text-body-emphasis bg-body-secondary">
+      <div class="col-lg-6 px-0">
+        <h1 class="display-4 fst-italic">Bienvenue chez PolyNews</h1>
+        <p class="lead my-3">Ici, nous avons des articles éducatifs PolyEdu et des articles de presse PolyNews. </p>
+        <p class="lead mb-0"><a href="#" class="text-body-emphasis text-warning clr-link fw-bold">Continuer à lire...</a></p>
+      </div>
+    </div>
+  
+    <div class="row mb-2">
+      
+{% for new in news %}
+      <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-success-emphasis">{{ new.category }}</strong>
+            <h3 class="mb-0">{{ new.title }}</h3>
+            <div class="mb-1 text-body-secondary">{{ new.add_time }}</div>
+            <p class="mb-auto">{{ new.description }}</p>
+            <strong><a href="{% url 'newsarticle' new.id %}" class="clr-link text-warning icon-link gap-1 icon-link-hover stretched-link">
+              Continue reading
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
+                <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+              </svg>
+            </a></strong>
+          </div>
+          <div class="col-auto d-none d-lg-block">
+            <img src="{% get_media_prefix %}{{ new.image }}" width="200px" height="250px" class="d-inline-block align-middle" alt="">
+            
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  
+    
+  
+  </main>
+{% endblock %}

@@ -1,0 +1,63 @@
+/* Styling for the classification and color div */
+.classification {
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .color-div {
+    display: none;
+  }
+  
+  .color {
+    font-weight: bold;
+  }
+  
+  /* Styling for the wave visualization */
+  #wave {
+    position: relative;
+    width: 1140px;
+    height: 200px;
+    background-color: whitesmoke; /* Set the base color to black */
+    overflow: hidden;
+    border: 1px solid black;
+  }
+  
+  .transverse .wave-circle,
+  .longitudinal .wave-line {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black; /* Set the default color for non-visible waves */
+  }
+  
+  .transverse.visible .wave-circle,
+  .longitudinal.visible .wave-line {
+    background-color: var(--wave-color);
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+          #wave span {
+              position: absolute;
+              bottom: 0;
+              height: 50px;
+          }
+  
+          #wave.transverse span {
+              background-color: black;
+          }
+  
+          #wave.longitudinal span {
+              background-color: red;
+          }
+  
+          #colorDiv {
+      display: none;
+  }

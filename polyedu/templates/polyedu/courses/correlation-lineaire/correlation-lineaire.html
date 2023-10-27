@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+  {%include "fr/extensions/head.html"%}
+    <body>
+      <title>Corrélation Linéaire - PolyEdu</title>
+          <!-- navbar -->
+      {%include "fr/extensions/navbar.html"%}
+
+      {% include "fr/courses/correlation-lineaire/list.html" %}
+          <!-- Body de Title -->
+      <main class="container pt-2 rounded px-4">
+        <h1 class="mt-2">Corrélation Linéaire</h1>
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{url_for('fr.articles.articles')}}">Articles</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Corrélation Linéaire</li>
+    
+  </ol>
+</nav>
+  
+  <small>Écrit par: Renji Jenkins<br/>
+   04/05/23 </small><br/>
+
+        <h3 class="py-2">Chapitres de l'article: </h3>
+          <ol>
+            <li><a href="#1" class="clr-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-down" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4.854 14.854a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V3.5A2.5 2.5 0 0 1 6.5 1h8a.5.5 0 0 1 0 1h-8A1.5 1.5 0 0 0 5 3.5v9.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4z"/>
+</svg> Définition</a></li>
+            <li><a href="#2" class="clr-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-down" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4.854 14.854a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V3.5A2.5 2.5 0 0 1 6.5 1h8a.5.5 0 0 1 0 1h-8A1.5 1.5 0 0 0 5 3.5v9.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4z"/>
+</svg> Les nuages de points</a></li>
+            <li><a href="#3" class="clr-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-down" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4.854 14.854a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V3.5A2.5 2.5 0 0 1 6.5 1h8a.5.5 0 0 1 0 1h-8A1.5 1.5 0 0 0 5 3.5v9.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4z"/>
+</svg> Caractéristiques</a></li>
+          </ol>
+        <div id="1">
+        <hr class="dashed"/>
+          <p>Dans une étude statistique, on s'intéresse parfois à plus d'un caractère d'une population. Les données recueillies forment alors une distribution à deux ou plusieurs caractères.
+
+  <strong>La corrélation est une relation quantifiée entre deux variables quantitatives.
+</strong></p>
+
+          <p>Par exemple:
+            <li>La distance parcourue (en km) et le nombre de litres d'essence consommé (en L)
+</li>
+            <li>Le temps dépensé (en secondes) la vitesse (en km/h)</li>
+            <li>La durée de vie d'une montre (en années) et le prix de la montre ($)</li>
+          </p>
+          
+          </div>
+        <div id="2">
+        <hr class="dashed"/>
+          <p>Un <strong>nuage de points</strong> est un graphique permettant de représenter une distribution à deux caractères quantitatif. Chaque couple de relation statistique est représenté par un point. S'il existe un lien entre deux variables dans une distribution, on essaie de qualifier ce lien. Lorsque le nuage de points s'étire en suivant une droite oblique, on dit que la corrélation est linéaire.</p>
+
+          <p>Voici un exemple de nuage de points:</p>
+          <img src="{{url_for('static', filename='img/r=0.png')}}" class="d-inline-block align-top img-fluid" alt="">
+          <p>En voici un avec une corrélation linéaire:</p>
+          <img src="{{url_for('static', filename='img/r=-1.png')}}" class="d-inline-block align-top img-fluid" alt="">
+          </div>
+        <div id="3">
+        <hr class="dashed"/>
+          <p>Pour décrire une corrélation linéaire, il y a une interprétation qualitative : 
+          <ul class="roman">
+ <li>Son sens:
+ <ul class="square">
+  <li>Positif;</li>
+  <li>Négatif.</li>
+ </ul>
+ </li>
+ <li>Son intensité:
+   <ul class="square">
+  <li>Nulle;</li>
+  <li>Faible;</li>
+      <li>Moyen;</li>
+       <li>Forte;</li>
+       <li>Parfaite.</li>
+ </ul>
+ </li>
+</ul>
+          </p>
+<p>Plus les points se rapprochent d'une droite linéaire, plus la corrélation entre les variables est forte.</p>
+
+          <p>Il y a une interpréation quantitative:
+          <li>On qualifie les corrélations linéaires à l'aide d'un nombre compris entre -1 et 1 appelé <a href="{{url_for('fr.articles.coefficient_correlation')}}" class="clr-link">coefficient de corrélation (r).</a></li></p>
+          
+          </div>
+        <img src="{{url_for('static', filename='img/correlation.png')}}" class="d-inline-block align-top img-fluid" alt="">
+        <hr class="dashed"/>
+        <h2 class="py-2">Voir plus d'articles: </h2>
+      <div class="row mb-2">
+<div class="col-md-6 target">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative card-article">
+        <div class="col p-4 d-flex flex-column position-static height240">
+          <strong class="d-inline-block mb-2 text-math">Mathématiques</strong>
+          <h3 class="mb-0">La droite</h3>
+          <div class="mb-1 text-muted">06/04/23</div>
+          <p class="mb-auto description">Cet article contient des explications les droites, pentes, demi-droites, segments de droites et leur distance.</p>
+          <a href="{{url_for('fr.articles.droite')}}" class="stretched-link"></a>
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-md-6 target">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative card-article">
+        <div class="col p-4 d-flex flex-column position-static height240">
+          <strong class="d-inline-block mb-2 text-math">Mathématiques</strong>
+          <h3 class="mb-0">La Relation de Pythagore</h3>
+          <div class="mb-1 text-muted">25/03/23</div>
+          <p class="mb-auto description">Cet article contient des explications le théorème de Pythagore, également nommée relation de Pythagore.</p>
+          <a href="{{url_for('fr.articles.pythagore')}}" class="stretched-link"></a>
+        </div>
+        
+      </div>
+    </div>
+</main>
+      <!-- footer -->
+      {%include "fr/extensions/footer.html"%}
+      <script src="{{url_for('static',filename='js/smoothscroll.js')}}"></script>
+    </body>
+</html>

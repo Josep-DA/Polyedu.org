@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+  {%include "fr/extensions/head.html"%}
+    <body>
+      <title>Projections centrale - PolyEdu</title>
+          <!-- navbar -->
+      {%include "fr/extensions/navbar.html"%}
+
+          <!-- Body de Title -->
+      <main class="container pt-2 rounded px-4">
+        <h1 class="mt-2">Projections centrale</h1>
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{url_for('fr.articles.articles')}}">Articles</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Projections centrale</li>
+    
+  </ol>
+</nav>
+  
+  <small>Écrit par: Renji Jenkins<br/>
+   01/06/23 </small><br/>
+
+        <h3 class="py-2">Chapitres de l'article: </h3>
+          <ol>
+            <li><a href="#1" class="clr-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-down" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4.854 14.854a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V3.5A2.5 2.5 0 0 1 6.5 1h8a.5.5 0 0 1 0 1h-8A1.5 1.5 0 0 0 5 3.5v9.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4z"/>
+</svg> Projection centrale à un point de fuite</a></li>
+<li><a href="#2" class="clr-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-down" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4.854 14.854a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V3.5A2.5 2.5 0 0 1 6.5 1h8a.5.5 0 0 1 0 1h-8A1.5 1.5 0 0 0 5 3.5v9.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4z"/>
+</svg> Projection centrale à deux points de fuite</a></li>
+          </ol>
+        <div id="#1">
+        <hr class="dashed"/>
+        <h3>La projection centrale à un point de fuite</h3>
+<p>Dans cette perspective, les arêtes qui définissent la profondeur d'un solide convergent vers un point de fuite situé sur la ligne d'horizon. Ainsi, la face représentée dans le plan frontal n'est pas déformée par rapport à la réalité, mais les autres le sont toutes.</p>
+<h4>Règle:</h4>
+<ol>
+  <li>Tracer la base voulue dans le plan frontal et le point de fuite.</li>
+  <li>Tracer les lignes fuyantes.</li>
+  <li>Tracer la base la plus éloignée.</li>
+  <li>Compléter le solide.</li>
+</ol>
+          <p>Voici à quoi ressemble une projection centrale à un point de fuite:</p>
+          <img src="{{url_for('static', filename='img/1pointdefuite.png')}}" class="d-inline-block align-top img-fluid" alt="">
+          </div>
+          <div id="#1">
+            <hr class="dashed"/>
+            <h3>La projection centrale à deux points de fuite</h3>
+    <p>Dans une perspective à deux points de fuite, les arêtes associées à une dimension du solide convergent vers un point de fuite situé sur la ligne d'horizon, et les arêtes associées à une autre dimension convergent vers un autre point de fuite situé sur la même ligne d'horizon.    </p>
+    <h4>Règle:</h4>
+    <ol>
+      <li><strong>Tracer un premier point de repère.</strong> Dans ce cas, il s'agit de tracer l'arête verticale du solide qui est la plus près de l'observateur. De plus, les deux points de fuite peuvent être fournis ou tracés arbitrairement. Dans un cas comme dans l'autre, ils doivent absolument être sur une même ligne horizontale puisqu'ils définissent l'horizon.</li>
+      <li><strong>Tracer les lignes fuyantes.</strong> 
+        Tracer des lignes fuyantes joignant les points de fuite à chaque extrémité de l'arête verticale.</li>
+      <li><strong>Tracer d'autres arêtes verticales.</strong> Tracer deux arêtes verticales parallèles à celle déjà tracée en respectant les limites des lignes fuyantes.</li>
+      <li><strong>Tracer les autres lignes fuyantes.</strong> Tracer des lignes fuyantes joignant les points de fuite à chaque extrémité des nouvelles arêtes verticales.</li>
+      <li><strong>Tracer la dernière arête verticale.</strong> Tracer l'arête la plus éloignée de l'observateur, soit celle formée par l'intersection des nouvelles lignes fuyantes, en respectant les limites des lignes fuyantes et le parallélisme avec les autres arêtes verticales.</li>
+      <li><strong>Compléter le solide.</strong> Tracer le solide en enlevant les lignes fuyantes inutiles et en prenant soin d'utiliser le pointillé pour identifier les arêtes qui ne sont pas visibles dans la réalité.</li>
+    </ol>
+              <p>Voici à quoi ressemble une projection centrale à deux points de fuite:</p>
+              <img src="{{url_for('static', filename='img/2pointsdefuite.png')}}" class="d-inline-block align-top img-fluid" alt="">
+              </div>
+        
+        <hr class="dashed"/>
+        <h2 class="py-2">Voir plus d'articles: </h2>
+      <div class="row mb-2">
+<div class="col-md-6 target">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative card-article">
+        <div class="col p-4 d-flex flex-column position-static height240">
+          <strong class="d-inline-block mb-2 text-math">Mathématiques</strong>
+          <h3 class="mb-0">Géométrie analytique</h3>
+          <div class="mb-1 text-muted">05/04/23</div>
+          <p class="mb-auto description">Cet article contient des explications en trois articles sur le concept de la géométrie analytique.</p>
+          <a href="{{url_for('fr.articles.geometrie_analytique')}}" class="stretched-link"></a>
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-md-6 target">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative card-article">
+        <div class="col p-4 d-flex flex-column position-static height240">
+          <strong class="d-inline-block mb-2 text-math">Mathématiques</strong>
+          <h3 class="mb-0">Perspective Axonométrique</h3>
+          <div class="mb-1 text-muted">25/03/23</div>
+          <p class="mb-auto description">Cet article contient des explications sur la perspective axonométrique d'une projection parallèle.</p>
+          <a href="{{url_for('fr.articles.axonometrique')}}" class="stretched-link"></a>
+        </div>
+        
+      </div>
+    </div>
+</main>
+      <!-- footer -->
+      {%include "fr/extensions/footer.html"%}
+      <script src="{{url_for('static',filename='js/smoothscroll.js')}}"></script>
+    </body>
+</html>

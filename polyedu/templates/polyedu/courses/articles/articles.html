@@ -1,0 +1,128 @@
+{% extends 'polyedu/base.html' %}
+{% load static %}
+{% block content %}
+<style>
+  table{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+th,
+td {
+    padding: 12px 15px;
+}
+tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+</style>
+<main class="container pt-2 rounded">
+    <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark" style="background-image: url({% static 'images/dudh_thumbnail.jpg' %}); background-size: cover; background-position-y: center;">
+        <div class="col-md-6 px-0">
+          <h1 class="display-4 fst-italic fw-bold text-warning" style="-webkit-text-stroke: 1px black;">Spécialisation de la DUDH</h1>
+          <p class="lead my-3 text-warning fw-bold" style="-webkit-text-stroke: 1px black;">Cette spécialisation d'articles est sur la déclaration universelle des droits de l'homme.</p>
+          <p class="lead mb-0"><a href="{% url 'dudh1' %}" class="text-white fw-bold">Continuer à lire...</a></p>
+        </div>
+      </div>
+
+      
+      <form method="POST">
+        {% csrf_token %}
+      <input type="input" class="mb-2 form-control" placeholder="Rechercher un article" name="search">
+        <button type="submit" class="btn btn-primary">Rechercher un article!</button>
+        <a class="btn btn-secondary " href="{% url 'article_create' %}" role="button">Créer un article</a>
+    </form>
+  <hr/>
+  <div class="row mb-2">
+    {% if search %}
+<p>You searched for: {{search}}</p>
+
+{% for article in searched %}
+<div class="col-md-6 target">
+    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-1 shadow-sm h-md-250 position-relative card-article">
+      <div class="col p-4 d-flex flex-column position-static height240">
+        <strong class="d-inline-block mb-2" style="color: {{ article.category.color }}">{{ article.category.name }}</strong>
+        <h3 class="mb-0">{{ article.title }}</h3>
+        <div class="mb-1 text-muted">{{ article.created_at }}</div>
+        <p class="card-text mb-auto description">{{ article.desc }}</p>
+      </div>
+      <a href="{% url 'article_show' article.id %}" class="stretched-link"></a>
+      {% if article.poster_id == current_user.id %}
+        <div class="container" style="position: relative;">
+          Contrôles d'administateur:
+          <a href="{% url 'delete_article' article.id %}" style="z-index: 2;
+          position: relative;"><i class="fa fa-trash" style="color:red"></i></a> 
+          <a href="{% url 'edit_article' article.id %}" style="z-index: 2;
+          position: relative;"><i class="fa fa-edit" style="color:gray"></i></a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+{% else %}
+    {% for article in articles %}
+  <div class="col-md-6 target">
+    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-1 shadow-sm h-md-250 position-relative card-article">
+      <div class="col p-4 d-flex flex-column position-static height240">
+        <strong class="d-inline-block mb-2" style="color: {{ article.category.color }}">{{ article.category.name }}</strong>
+        <h3 class="mb-0">{{ article.title }}</h3>
+        <div class="mb-1 text-muted">{{ article.created_at }}</div>
+        <p class="card-text mb-auto description">{{ article.desc }}</p>
+      </div>
+      <a href="{% url 'article_show' article.id %}" class="stretched-link"></a>
+      {% if article.poster_id == current_user.id %}
+        <div class="container" style="position: relative;">
+          Contrôles d'administateur:
+          <a href="{% url 'delete_article' article.id %}" style="z-index: 2;
+          position: relative;"><i class="fa fa-trash" style="color:red"></i></a> 
+          <a href="{% url 'edit_article' article.id %}" style="z-index: 2;
+          position: relative;"><i class="fa fa-edit" style="color:gray"></i></a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+{% endif %}
+  </div>
+</main>
+
+	
+
+<script>function searchDivs() {
+    var input = document.getElementById("Search");
+    var filter = input.value.toLowerCase();
+    var nodes = document.getElementsByClassName('target');
+    
+  
+    for (i = 0; i < nodes.length; i++) {
+      if (nodes[i].innerText.toLowerCase().includes(filter)) {
+        nodes[i].style.display = "block";
+      } else {
+        nodes[i].style.display = "none";
+      }
+  
+      
+    }
+  }
+        </script>
+{% endblock %}

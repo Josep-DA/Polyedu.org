@@ -1,0 +1,40 @@
+.component-symbol {
+    fill: none;
+    stroke: black;
+    stroke-width: 2;
+  }
+
+  .connection-line {
+    stroke: black;
+    stroke-width: 2;
+  }
+  .remove-button {
+  fill: #ff0000;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+
+.remove-button:hover {
+  fill: #cc0000;
+}
+#sidebar {
+width: auto;
+background-color: var(--clr-card-bg);
+padding: 20px;
+box-sizing: border-box;
+display: none; /* Initially hide the sidebar */
+}
+
+#sidebar.show {
+display: block; /* Show the sidebar when it's active */
+}
+
+.container-box{
+background-color: var(--clr-card-bg);
+}
+.draggable {
+    cursor: move;
+  }

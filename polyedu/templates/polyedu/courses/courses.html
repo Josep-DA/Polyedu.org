@@ -1,0 +1,445 @@
+{% extends 'polyedu/base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    #filter-heading img {
+    width:13px;
+} 
+
+#type-checkboxes, #language-checkboxes, #level-checkboxes {
+display:none;
+}
+
+
+
+.close-svg {
+width:13px;
+}
+
+#display-filter-results span {
+font-size: 13px;
+}
+
+.display{
+display:none;
+}
+
+span.beginner-checkbox {
+display:none;
+}
+
+.clearall {
+display:none;
+}
+    
+</style>
+<main class="container transition-fade rounded" >
+
+    <section class="py-5 text-center container transition-fade">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light">Tout les cours</h1>
+          <p class="lead">Obtenez des nouvelles compétences et développez votre compréhension dans un domaine particulier.</p>
+         
+            
+            
+           <input class="form-control" id="Search" type="text"  placeholder="Recherche.." onkeyup="searchDivs()"> 
+            
+            <br style="line-height: 5px" />
+          <!-- filter click arrow icon for checkbox options -->
+<div id='filter-heading' class='sticky-nav'>
+  <button type="button" class="btn btn-primary" id="type-arrow-click">
+Matières <span class="badge bg-secondary">14</span>
+</button>
+  <button type="button" class="btn btn-success" id="language-arrow-click">
+Langues <span class="badge bg-secondary">8</span>
+</button>
+  <button type="button" class="btn btn-warning" style="color: white;" id="level-arrow-click">
+Niveau <span class="badge bg-secondary">5</span>
+</button>
+    <div id='type-checkboxes'>
+      
+        <input type='checkbox' class='checkbox' value='french' id='french-checkbox'>
+        <label for='french-checkbox'>Français</label>
+      
+      
+        <input type='checkbox' class='checkbox' value='english' id='english-checkbox'>
+        <label for='english-checkbox'>English</label>
+     
+      
+        <input type='checkbox' class='checkbox' value='espanol' id='espanol-checkbox'>
+        <label for='espanol-checkbox'>Español</label>
+      
+         
+        <input type='checkbox' class='checkbox' value='math' id='math-checkbox'>
+        <label for='math-checkbox'>Mathématiques</label>
+     
+      
+        <input type='checkbox' class='checkbox' value='science' id='science-checkbox'>
+        <label for='science-checkbox'>Sciences et technologies</label>
+      
+     
+        <input type='checkbox' class='checkbox' value='geography' id='geography-checkbox'>
+        <label for='geography-checkbox'>Géographie</label>
+      
+         
+        <input type='checkbox' class='checkbox' value='history' id='history-checkbox'>
+        <label for='history-checkbox'>Histoire</label>
+      
+      
+        <input type='checkbox' class='checkbox' value='computer_science' id='computer_science-checkbox'>
+        <label for='computer_science-checkbox'>Informatique</label>
+      
+      
+        <input type='checkbox' class='checkbox' value='arts' id='arts-checkbox'>
+        <label for='arts-checkbox'>Arts</label>
+      
+        
+        <input type='checkbox' class='checkbox' value='economy' id='economy-checkbox'>
+        <label for='economy-checkbox'>Économie et Finance</label>
+    
+  
+        <input type='checkbox' class='checkbox' value='pe' id='pe-checkbox'>
+        <label for='pe-checkbox'>Éducation Physique</label>
+      <input type='checkbox' class='checkbox' value='culture' id='culture-checkbox'>
+        <label for='culture-checkbox'>Culture et citoyenneté québécoise</label>
+      
+        <input type='checkbox' class='checkbox' value='ps' id='ps-checkbox'>
+        <label for='ps-checkbox'>Programmes spéciaux</label>
+      
+        <input type='checkbox' class='checkbox' value='others' id='others-checkbox'>
+        <label for='others-checkbox'>Autres</label>
+      
+    </div>
+    <div id='language-checkboxes'>
+    
+        <input type='checkbox' class='checkbox' value='french_lang' id='french_lang-checkbox'>
+        <label for='french_lang-checkbox'>Français</label>
+    
+        <input type='checkbox' class='checkbox' value='english_lang' id='english_lang-checkbox'>
+        <label for='english_lang-checkbox'>Anglais</label>
+
+        <input type='checkbox' class='checkbox' value='html' id='html-checkbox'>
+        <label for='html-checkbox'>HTML</label>
+    
+        <input type='checkbox' class='checkbox' value='css' id='css-checkbox'>
+        <label for='css-checkbox'>CSS</label>
+  
+        <input type='checkbox' class='checkbox' value='javascript' id='javascript-checkbox'>
+        <label for='javascript-checkbox'>JavaScript</label>
+      
+        <input type='checkbox' class='checkbox' value='python' id='python-checkbox'>
+        <label for='python-checkbox'>Python</label>
+      
+        <input type='checkbox' class='checkbox' value='c1' id='c++-checkbox'>
+        <label for='c++-checkbox'>C++</label>
+      
+        <input type='checkbox' class='checkbox' value='c2' id='c#-checkbox'>
+        <label for='c#-checkbox'>C#</label>
+    </div>
+    <div id='level-checkboxes'>
+      
+        <input type='checkbox' class='checkbox' value='sec1' id='sec1-checkbox'>
+        <label for='sec1-checkbox'>Secondaire 1</label>
+      
+        <input type='checkbox' class='checkbox' value='sec2' id='sec2-checkbox'>
+        <label for='sec2-checkbox'>Secondaire 2</label>
+      
+        <input type='checkbox' class='checkbox' value='sec3' id='sec3-checkbox'>
+        <label for='sec3-checkbox'>Secondaire 3</label>
+      
+        <input type='checkbox' class='checkbox' value='sec4' id='sec4-checkbox'>
+        <label for='sec4-checkbox'>Secondaire 4</label>
+     
+        <input type='checkbox' class='checkbox' value='sec5' id='sec5-checkbox'>
+        <label for='sec5-checkbox'>Secondaire 5</label>
+     
+      
+      
+    </div>
+
+          </div>
+
+<!-- display text for corresponding checked checkboxes -->
+<div class='sticky-nav'>
+  <br style="line-height: 5px" />
+<div id='display-filter-results'>
+  
+      
+    
+    <span class="badge bg-primary display french">Français</span>
+    <span class="badge bg-primary display english">English</span>
+    <span class="badge bg-primary display espanol">Español</span>
+    <span class="badge bg-primary display math">Mathématiques</span>
+    <span class="badge bg-primary display science">Science et technologies</span>
+    <span class="badge bg-primary display geography">Géographie</span>
+    <span class="badge bg-primary display history">Histoire</span>
+    <span class="badge bg-primary display computer_science">Informatique</span>
+    <span class="badge bg-primary display arts">Arts</span>
+    <span class="badge bg-primary display economy">Économie et Finance</span>
+    <span class="badge bg-primary display pe">Éducation physique</span>
+  <span class="badge bg-primary display culture">Culture et citoyenneté québécoise</span>
+    <span class="badge bg-primary display ps">Programmes Spéciaux</span>
+    <span class="badge bg-primary display others">Autres</span>
+      
+    <span class="badge bg-success display french_lang">Français</span>
+    <span class="badge bg-success display english_lang">English</span>
+    <span class="badge bg-success display html">HTML</span>
+    <span class="badge bg-success display css">CSS</span>
+    <span class="badge bg-success display javascript">JavaScript</span>
+    <span class="badge bg-success display python">Python</span>
+    <span class="badge bg-success display c1">C++</span>
+    <span class="badge bg-success display c2">C#</span>
+      
+    
+    <span class="badge bg-warning display sec1">Secondaire 1</span>
+    <span class="badge bg-warning display sec2">Secondaire 2</span>
+    <span class="badge bg-warning display sec3">Secondaire 3</span>
+    <span class="badge bg-warning display sec4">Secondaire 4</span>
+    <span class="badge bg-warning display sec5">Secondaire 5</span>
+    
+    <span class='clearall'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square close-svg" viewBox="0 0 16 16" id='close-all'>
+<path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+</svg> Tout effacer</span>
+  
+</div>
+</div>
+            
+        </div>
+          
+      </div>
+    </section>
+
+    <!-- Liste de cours -->
+    <div class="album py-5">
+      <div class="container">
+        
+        <!-- Colonnes -->
+        <center>Aucun cours disponible pour l'instant.</center>
+        <!--<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+          <div class="col target">
+            <div class="card shadow-sm height-courses overflow-hidden" style="border-block-color:#FF9900">
+             <img class="height-thumbnail img-responsive" src="{% static 'images/courses/correlation_lineaire.png' %}">
+                  
+              <div class="card-body">
+                  <h2>La corrélation linéaire</h2> 
+                  
+                <span class="badge bg-primary math">Mathématiques</span>
+                <span class="badge bg-success french_lang">Français</span>
+                <span class="badge bg-warning sec4">Secondaire 4</span>
+                
+                
+                
+                <p class="card-text mt-3">Ce cours explique comment fonctionne la corrélation linaire en statistiques de secondaire 4.</p>
+                
+                    
+                    <a href="{% url 'correlation_lineaire' %}" class="stretched-link"></a>
+                    
+                  
+              </div></a>
+            </div>
+          </div>
+          <div class="col target">
+            <div class="card shadow-sm height-courses overflow-hidden" style="border-block-color:#FF9900">
+             <img class="height-thumbnail img-responsive" src="{% static 'images/courses/geometrie_analytique.jpg' %}">
+                  
+              <div class="card-body">
+                  <h2>La géométrie analytique</h2> 
+                  
+                <span class="badge bg-primary math">Mathématiques</span>
+                <span class="badge bg-success french_lang">Français</span>
+                <span class="badge bg-warning sec4">Secondaire 4</span>
+                
+                
+                
+                <p class="card-text mt-3">Ce cours explique comment fonctionne la géométrie analytique en mathématiques de secondaire 4.</p>
+                
+                    
+                    <a href="{% url 'geometrie_analytique' %}" class="stretched-link"></a>
+                    
+                  
+              </div></a>
+            </div>
+          </div>
+          <div class="col target">
+            <div class="card shadow-sm height-courses overflow-hidden" style="border-block-color:#9900FF;">
+             <img class="height-thumbnail img-responsive" src="{% static 'images/courses/regions-du-monde.png' %}">
+                  
+              <div class="card-body">
+                  <h2>Les Grandes Régions du Monde</h2> 
+                  
+                <span class="badge bg-primary geography">Géographie: Monde Contemporain</span>
+                <span class="badge bg-success french_lang">Français</span>
+                <span class="badge bg-warning sec4">Secondaire 5</span>
+                
+                
+                
+                <p class="card-text mt-3">Ce cours démontre les particularités propres à chacunes des régions.</p>
+                
+                    
+                    <a href="{% url 'europe' %}" class="stretched-link"></a>
+                    
+                  
+              </div></a>
+            </div>
+          </div>
+          <div class="col target">
+            <div class="card shadow-sm height-courses overflow-hidden" style="border-block-color:#0d6efd;;">
+             <img class="height-thumbnail img-responsive" src="{% static 'images/courses/classesdemots.jpg' %}">
+                  
+              <div class="card-body">
+                  <h2>Les classes de mots</h2> 
+                  
+                <span class="badge bg-primary french">Français</span>
+                <span class="badge bg-success french_lang">Français</span>
+                <span class="badge bg-warning sec1">Secondaire 1</span>
+                
+                
+                
+                <p class="card-text mt-3">Ce cours explique les différentes classes de mots dans la grammaire française.</p>
+                
+                    
+                    <a href="{% url 'classesdemots' %}" class="stretched-link"></a>
+                    
+                  
+              </div></a>
+            </div>
+          </div>
+          <div class="col target">
+            <div class="card shadow-sm height-courses overflow-hidden" style="border-block-color:#f1c40f;">
+             <img class="height-thumbnail img-responsive" src="{% static 'images/courses/dudh.jpg' %}">
+                  
+              <div class="card-body">
+                  <h2>La déclaration universelle des droits de l'homme</h2> <span class="badge bg-primary culture">Culture et citoyenneté québécoise</span>
+                
+                <span class="badge bg-success french_lang">Français</span>
+                <span class="badge bg-warning sec4">Secondaire 4</span>
+                
+                
+                
+                <p class="card-text mt-3">Ce cours démontre les droits de la déclaration universelle des droits de l'homme.</p>
+                
+                    
+                    <a href="{% url 'dudh1' %}" class="stretched-link"></a>
+                    
+                  
+              </div></a>
+            </div>
+          </div>
+          <div class="col target">
+            <div class="card shadow-sm height-courses overflow-hidden" style="border-block-color:#6c757d;">
+             <img class="height-thumbnail img-responsive" src="{% static 'images/courses/GUIDE_METHODOLOGIQUE.png' %}">
+                  
+              <div class="card-body">
+                  <h2>Guide méthodologique du PEI</h2> <span class="badge bg-primary ps">Programmes spéciaux</span>
+                  <span class="badge bg-primary others">Autres</span>
+                  
+                  <span class="badge bg-success french_lang">Français</span>
+                
+                
+                
+                <p class="card-text mt-3">Ce cours démontre la bonne utilisation du Guide méthodologique du PEI.</p>
+                
+                    
+                    <a href="{% url 'gm1' %}" class="stretched-link"></a>
+                    
+                  
+              </div></a>
+            </div>
+          </div>
+          
+          
+          
+  
+          
+          </div>-->
+          
+        </div>
+      </div>
+    </div>
+  
+  </main>
+
+
+<script>function searchDivs() {
+var input = document.getElementById("Search");
+var filter = input.value.toLowerCase();
+var nodes = document.getElementsByClassName('target');
+
+
+for (i = 0; i < nodes.length; i++) {
+if (nodes[i].innerText.toLowerCase().includes(filter)) {
+nodes[i].style.display = "block";
+} else {
+nodes[i].style.display = "none";
+}
+
+
+}
+}
+</script>
+
+<script>
+
+$(document).ready(function(){
+$('#type-arrow-click').click(function(){
+console.log('type');
+$('#type-checkboxes').fadeToggle(400);
+$('#language-checkboxes').hide();
+$('#level-checkboxes').hide();
+})
+$('#language-arrow-click').click(function(){
+console.log('lang');
+$('#type-checkboxes').hide();
+$('#language-checkboxes').fadeToggle(400);
+$('#level-checkboxes').hide();
+})
+$('#level-arrow-click').click(function(){
+console.log('level');
+$('#type-checkboxes').hide();
+$('#language-checkboxes').hide();
+$('#level-checkboxes').fadeToggle(400);
+})
+
+if ('input[type=checkbox]:checked') {
+$()
+}
+
+// if checkbox is checked, show corresponding text with option to X out and delete text and uncheck checkbox
+$('input[type="checkbox"]').change(function () {
+var checkboxname = $(this).val();
+    console.log(this.value);
+if ($(".display").hasClass(checkboxname)) {
+    if ($(this).is(":checked")) {
+        $('.target').hide();
+        $(("." + checkboxname)).closest('.target').show();
+        $(".display." + checkboxname).show();
+        $('.clearall').show();
+      
+    } else {
+        $(("." + checkboxname)).closest('.target').hide();
+        $(".display." + checkboxname).hide();
+    }
+}
+
+$('#close-all').click(function() {
+     // $('input[type="checkbox"]').empty();
+     $('input[type=checkbox]').each(function() { this.checked = false; }); 
+     $('.display.' + checkboxname).hide();
+     $('.clearall').hide();
+     $('#type-checkboxes').hide();
+    $('#language-checkboxes').hide();
+    $('#level-checkboxes').hide();
+$('.col').show();
+});
+
+
+});
+
+})
+</script>
+
+{% endblock %}

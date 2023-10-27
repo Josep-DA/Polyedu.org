@@ -1,0 +1,55 @@
+<!-- chat_room.html -->
+{% extends 'polyedu/base.html' %}
+{% load static %} 
+{% block content %}
+    <div id="message-container">
+        <!-- Display chat messages here -->
+    </div>
+
+    <form id="message-form">
+        <input type="text" id="message-input" placeholder="Type your message" autocomplete="off">
+        <button type="submit">Send</button>
+    </form>
+
+    <!-- Include the JavaScript code -->
+    <script src="{% static 'js/chat.js' %}"></script>
+    <script>
+        // Function to handle incoming messages
+        function showMessage(message) {
+            // Create a new <div> element to display the message
+            var messageElement = document.createElement('div');
+            messageElement.innerHTML = message;
+    
+            // Append the message to the message container
+            var messageContainer = document.getElementById('message-container');
+            messageContainer.appendChild(messageElement);
+        }
+    
+        // WebSocket connection code
+        var socket = new WebSocket('ws://' + window.location.host + '/ws/chat/{{ room_name }}/');
+        socket.onmessage = function(e) {
+            var data = JSON.parse(e.data);
+            showMessage(data.message);
+        };
+    
+        // Code to send messages
+        var messageForm = document.getElementById('message-form');
+        var messageInput = document.getElementById('message-input');
+    
+        messageForm.addEventListener('submit', function(e) {
+            e.preventDefault();  // Prevent form submission
+    
+            // Get the entered message
+            var message = messageInput.value.trim();
+    
+            // Send the message to the WebSocket
+            socket.send(JSON.stringify({
+                'message': message
+            }));
+    
+            // Clear the input field
+            messageInput.value = '';
+        });
+    </script>
+    
+{% endblock %}

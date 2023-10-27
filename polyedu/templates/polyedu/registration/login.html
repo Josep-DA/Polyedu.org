@@ -1,0 +1,67 @@
+{% extends 'polyedu/base.html' %}
+{% block content %}
+{% load static %}
+{% if user.is_authenticated %}
+<h1>You're Already Logged In!</h1>
+
+{% else %}
+<style>
+  html,
+body {
+  height: 100%;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 1rem;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+</style>
+<br/>
+<main class="form-signin w-100 m-auto text-center">
+  <form method="POST" action="{% url 'login' %}">
+
+	{% csrf_token %}
+    <img class="mb-4" src="{% static 'images/logo.png' %}" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+    <div class="text-center form-floating">
+        <input type="text" name="username" class=" form-control" id="floatingInput" placeholder="Username">
+        <label for="floatingInput">Username</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" name="password" class=" form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+    </div>
+
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <button class="w-auto btn btn-lg btn-primary mx-3" type="submit">Sign in</button>
+    <p class="mt-5 mb-3 text-muted">PolyEdu™ 2022-2023</p>
+  </form>
+</main>
+
+
+ 
+
+{% endif %}
+{% endblock %}

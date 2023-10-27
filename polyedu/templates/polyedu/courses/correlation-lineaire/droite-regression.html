@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+  {%include "fr/extensions/head.html"%}
+    <body>
+      <title>Droite de régression - PolyEdu</title>
+          <!-- navbar -->
+      {%include "fr/extensions/navbar.html"%}
+
+      {% include "fr/courses/correlation-lineaire/list.html" %}
+          <!-- Body de Title -->
+      <main class="container pt-2 rounded px-4">
+        <h1 class="mt-2">Droite de régression</h1>
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{url_for('fr.articles.articles')}}">Articles</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Droite de régression</li>
+    
+  </ol>
+</nav>
+  
+  <small>Écrit par: Renji Jenkins<br/>
+   08/05/23 </small><br/>
+
+        <h3 class="py-2">Chapitres de l'article: </h3>
+          <ol>
+            <li><a href="#1" class="clr-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-down" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4.854 14.854a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V3.5A2.5 2.5 0 0 1 6.5 1h8a.5.5 0 0 1 0 1h-8A1.5 1.5 0 0 0 5 3.5v9.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4z"/>
+</svg> Définition</a></li>
+            <li><a href="#2" class="clr-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-down" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4.854 14.854a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V3.5A2.5 2.5 0 0 1 6.5 1h8a.5.5 0 0 1 0 1h-8A1.5 1.5 0 0 0 5 3.5v9.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4z"/>
+</svg> Droite de Mayer</a></li>
+            <li><a href="#3" class="clr-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-down" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4.854 14.854a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V3.5A2.5 2.5 0 0 1 6.5 1h8a.5.5 0 0 1 0 1h-8A1.5 1.5 0 0 0 5 3.5v9.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4z"/>
+</svg> Droite Médiane-Médiane</a></li>
+          </ol>
+        <div id="1">
+        <hr class="dashed"/>
+  <strong>La droite qui représente le mieux l'ensemble de tous les points du nuage est appelée «droite de régression».</strong>
+<p> On peut repérer cette droite de diverses façons : manuellement, à l'aide de la méthode de Mayer ou à l'aide d'un outil technologique.</p>
+          </div>
+        <div id="2">
+        <hr class="dashed"/>
+          <h3>Droite de Mayer</h3>
+<p>Voici le procédé à utiliser pour faire une droite de régression à l'aide de la droite de Mayer:</p>
+        <ol>
+          <li>Ordonner les données en ordre croissant selon les valeurs de la première variable. Pour une même valeur égale de la première variable, ordonner les valeurs de la deuxième variable en ordre croissant si la corrélation est positive et en ordre décroissant si la corrélation est négative; </li>
+          <li>Partager la distribution en deux groupes contenant le même nombre de données. Si le nombre de données est impair, la donnée du centre est placée dans chacun des deux groupes; </li>
+          <li>Déterminer la moyenne des valeurs que prend chacune des variables dans chaque groupe;</li>
+          <li>À partir des 4 moyennes obtenues, définir les coordonnées de 2 points, 1 pour chaque groupe de données; </li>
+          <li>Déterminer l'équation de la droite passant par les deux points ainsi définis.</li>
+        </ol>
+          <!--<h4>Exemple:</h4>
+          <p>Quelle est l'équation de la droite de régression associée à la distribution suivante?</p>
+          -->
+          </div>
+
+        <div id="3">
+        <hr class="dashed"/>
+          <h3>Droite Médiane-Médiane</h3>
+          <p>Voici le procédé à utiliser pour faire une droite de régression à l'aide de la droite Médiane-Médiane:</p>
+  <ol>
+    <li>Ordonner les données en ordre croissant selon les valeurs de la première variable. Pour une même valeur égale de la première variable, ordonner les valeurs de la deuxième variable en ordre croissant si la corrélation est positive et en ordre décroissant si la corrélation est négative. </li>
+    <li>Partager la distribution en trois groupes contenant approximativement le même nombre de données. Si le nombre de données n'est pas un multiple de 3, le groupe du milieu peut contenir une donnée de plus ou une donnée de moins que les autres groupes. </li>
+    <li>Déterminer la médiane de chacun des groupes pour obtenir les coordonnées des points  \(M_{1}\), \(M_{2}\) et \(M_{3}\). </li>
+    <li>Déterminer la moyenne des coordonnées des abscisses et la moyenne des ordonnées de ces trois points pour obtenir les coordonnées du point P. </li>
+    <li>Déterminer l'équation de la droite parallèle à la droite \(M_{1}M_{3}\) et passant par le point P. </li>
+  </ol>
+
+          <div class="alert alert-warning" role="alert"><p style="text-decoration: underline;"><strong>NOTE:</strong> </p> Cette méthode nécessite moins de calculs lorsqu'il y a un grand nombre de données.
+</div>
+          </div>
+
+        
+       
+        
+        <hr class="dashed"/>
+        <h2 class="py-2">Voir plus d'articles: </h2>
+      <div class="row mb-2">
+      <div class="col-md-6 target">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative card-article">
+        <div class="col p-4 d-flex flex-column position-static height240">
+          <strong class="d-inline-block mb-2 text-math">Mathématiques</strong>
+          <h3 class="mb-0">Coefficient de corrélation linéaire</h3>
+          <div class="mb-1 text-muted">04/05/23</div>
+          <p class="mb-auto description">Cet article contient des explications sur le coefficient de corrélation linéaire en statistiques de secondaire 4.</p>
+          <a href="{{url_for('fr.articles.coefficient_correlation')}}" class="stretched-link"></a>
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-md-6 target">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative card-article">
+        <div class="col p-4 d-flex flex-column position-static height240">
+          <strong class="d-inline-block mb-2 text-math">Mathématiques</strong>
+          <h3 class="mb-0">La corrélation linéaire</h3>
+          <div class="mb-1 text-muted">04/05/23</div>
+          <p class="mb-auto description">Cet article contient des explications sur la corrélation linéaire en statistiques de secondaire 4.</p>
+          <a href="{{url_for('fr.articles.correlation_lineaire')}}" class="stretched-link"></a>
+        </div>
+        
+      </div>
+    </div>
+</main>
+      <!-- footer -->
+      {%include "fr/extensions/footer.html"%}
+      <script src="{{url_for('static',filename='js/smoothscroll.js')}}"></script>
+    </body>
+</html>

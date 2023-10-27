@@ -1,0 +1,36 @@
+ <!DOCTYPE html>
+<html lang="fr">
+  
+{%include "fr/extensions/head.html"%}
+<!-- Body de Title -->
+<title>DUDH: Article 3 - PolyEdu</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/filière.css')}}">
+    
+<body>
+    <!-- navbar -->
+    {% with data = "false" %}
+    {%include "fr/extensions/navbar.html"%}
+    {% endwith %}
+    <div class="sub-body">
+        <div class="container-center">
+            <div class="title">
+                <h2>{{content['title']}}</h2>
+            </div>
+            <div class="content">
+                {{content['content']}}
+            </div>
+        </div>
+        <div class="next">
+            <a href="{{url_for('fr.courses.filière', next_view=next_view+1)}}">page suivante</a>
+        </div>
+    </div>
+    
+    
+    <!-- footer  -->
+    {% with disable_footer="false" %}
+    {%include "fr/extensions/footer.html"%}
+    {% endwith %}
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <script src="{{ url_for('static', filename='js/video.js')}}"> </script>
+</body>
+</html>

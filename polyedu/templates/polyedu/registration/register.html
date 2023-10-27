@@ -1,0 +1,53 @@
+{% extends 'polyedu/base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+	li {
+list-style-position: inside;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 1rem;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+</style>
+<br/>
+<main class=" m-5 text-center">
+	<form method="POST" action="">
+  
+	  {% csrf_token %}
+	  <img class="mb-4" src="{% static 'images/logo.png' %}" alt="" width="72" height="72">
+	  <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+  
+	  {{ form.as_p }}
+
+	  <button class="w-auto btn btn-lg btn-primary mx-3" type="submit">Sign in</button>
+	  <p class="mt-5 mb-3 text-muted">PolyEdu™ 2022-2023</p>
+	</form>
+  </main>
+
+
+
+{% endblock %}

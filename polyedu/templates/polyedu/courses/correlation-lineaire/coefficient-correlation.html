@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+  {%include "fr/extensions/head.html"%}
+    <body>
+      <title>Coefficient de corrélation linéaire - PolyEdu</title>
+          <!-- navbar -->
+      {%include "fr/extensions/navbar.html"%}
+
+      {% include "fr/courses/correlation-lineaire/list.html" %}
+          <!-- Body de Title -->
+      <main class="container pt-2 rounded px-4">
+        <h1 class="mt-2">Coefficient de corrélation linéaire</h1>
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{url_for('fr.articles.articles')}}">Articles</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Coefficient de corrélation linéaire</li>
+    
+  </ol>
+</nav>
+  
+  <small>Écrit par: Renji Jenkins<br/>
+   04/05/23 </small><br/>
+
+        <h3 class="py-2">Chapitres de l'article: </h3>
+          <ol>
+            <li><a href="#1" class="clr-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-down" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4.854 14.854a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V3.5A2.5 2.5 0 0 1 6.5 1h8a.5.5 0 0 1 0 1h-8A1.5 1.5 0 0 0 5 3.5v9.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4z"/>
+</svg> Approximation du coefficient de corrélation linéaire</a></li>
+          </ol>
+        <div id="1">
+        <hr class="dashed"/>
+  <h3>Approximation du coefficient de corrélation linéaire</h3>
+<p>À partir d'un nuage de points, on peut estimer la valeur du coefficient de corrélation linéaire.</p>
+
+          <p>Méthode:
+            <ol>
+            <li>Tracer une droite pointillée qui passe au centre de l'ensemble des points;</li>
+            <li>Construire le plus petit rectangle contenant les points du nuage et ayant pour axe de symétrie la droite tracée;</li>
+            <li>Mesurer en mm la largeur et la longueur du rectangle;</li>
+            <li>Calculer le coefficient de corrélation à l'aide de la formule suivante:
+\(r\approx \pm 1-\frac{c_{-}}{c_{+}}\)</li>
+            </ol>
+          Dans cette formule, 
+          <center>\(c_{-}\) signifie « le côté le plus petit».</center>
+          <center>\(c_{+}\) signifie « le côté le plus grand».</center>
+          </p>
+          <p>Il est possible d'utiliser des outils technologies pour calculer la valeur du coefficient de corrélation, par exemple:</p>
+          <li>Une calculatrice graphique physique;</li>
+          <li>Une calculatrice graphique numérique comme Desmos.</li>
+          <br/>
+          <div class="alert alert-danger" role="alert"><p style="text-decoration: underline;"><strong>ATTENTION!</strong> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-exclamation-fill" viewBox="0 0 16 16">
+  <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+</svg></p> Pour que cette estimation soit valable, le nuage de points doit occuper un espace vertical de même grandeur que celui qu'il occupe horizontalement.
+</div>
+          </div>
+
+        
+        <hr class="dashed"/>
+        <h2 class="py-2">Voir plus d'articles: </h2>
+      <div class="row mb-2">
+      <div class="col-md-6 target">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative card-article">
+        <div class="col p-4 d-flex flex-column position-static height240">
+          <strong class="d-inline-block mb-2 text-math">Mathématiques</strong>
+          <h3 class="mb-0">La droite</h3>
+          <div class="mb-1 text-muted">06/04/23</div>
+          <p class="mb-auto description">Cet article contient des explications les droites, pentes, demi-droites, segments de droites et leur distance.</p>
+          <a href="{{url_for('fr.articles.droite')}}" class="stretched-link"></a>
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-md-6 target">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative card-article">
+        <div class="col p-4 d-flex flex-column position-static height240">
+          <strong class="d-inline-block mb-2 text-math">Mathématiques</strong>
+          <h3 class="mb-0">La Relation de Pythagore</h3>
+          <div class="mb-1 text-muted">25/03/23</div>
+          <p class="mb-auto description">Cet article contient des explications le théorème de Pythagore, également nommée relation de Pythagore.</p>
+          <a href="{{url_for('fr.articles.pythagore')}}" class="stretched-link"></a>
+        </div>
+        
+      </div>
+    </div>
+</main>
+      <!-- footer -->
+      {%include "fr/extensions/footer.html"%}
+      <script src="{{url_for('static',filename='js/smoothscroll.js')}}"></script>
+    </body>
+</html>

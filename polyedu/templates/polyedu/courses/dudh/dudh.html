@@ -1,0 +1,35 @@
+ <!DOCTYPE html>
+<html lang="fr">
+
+{%include "fr/extensions/head.html"%}
+<!-- Body de Title -->
+<title>DUDH: Article 3 - PolyEdu</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/video.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dudh.css')}}">
+    
+<body>
+    <!-- navbar -->
+    {%include "fr/extensions/navbar.html"%}
+
+    {% include "fr/courses/dudh/list.html" %}
+        
+    <div class="container">
+        <div class="main-video-container">
+            <img src="{{url_for('static', filename='img/dudh2.jpg')}}" style="height:100%;width:100%;object-fit:cover;margin-bottom:1em" alt="">
+            <h2 class="main-vid-title">Déclaration Universelle des Droits de l'Homme</h2>
+            
+            <section class="content">
+                <div class="container-medium">
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    
+    <!-- footer -->
+    {%include "fr/extensions/footer.html"%}
+
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <script src="{{ url_for('static', filename='js/video.js')}}"> </script>
+</body>
+</html>

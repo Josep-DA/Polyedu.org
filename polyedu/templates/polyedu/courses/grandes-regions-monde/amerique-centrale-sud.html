@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+  {%include "fr/extensions/head.html"%}
+    <body>
+      <title>L'Amérique centrale et l'Amérique du Sud - PolyEdu</title>
+          <!-- navbar -->
+      {%include "fr/extensions/navbar.html"%}
+
+      {% include "fr/courses/grandes-regions-monde/list.html" %}
+          <!-- Body de Title -->
+      <main class="container pt-2 rounded px-4">
+        <h1 class="mt-2">L'Amérique centrale et l'Amérique du Sud</h1>
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{url_for('fr.articles.articles')}}">Articles</a></li>
+    <li class="breadcrumb-item active" aria-current="page">L'Amérique centrale et l'Amérique du Sud</li>
+    
+  </ol>
+</nav>
+  
+  <small>Écrit par: Renji Jenkins<br/>
+   10/05/23 </small><br/>
+
+        <h3 class="py-2">Chapitres de l'article: </h3>
+          <ol>
+            <li><a href="#1" class="clr-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-down" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4.854 14.854a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V3.5A2.5 2.5 0 0 1 6.5 1h8a.5.5 0 0 1 0 1h-8A1.5 1.5 0 0 0 5 3.5v9.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4z"/>
+</svg> Définition et explication</a></li>
+            <li><a href="#2" class="clr-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-down" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4.854 14.854a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V3.5A2.5 2.5 0 0 1 6.5 1h8a.5.5 0 0 1 0 1h-8A1.5 1.5 0 0 0 5 3.5v9.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4z"/>
+</svg> Exercices sur l'Amérique centrale et du Sud</a></li>
+          </ol>
+        <div id="1">
+        <hr class="dashed"/>
+          <h3 class="py-2">Définition et explication des régions </h3>
+<p>L'Amérique centrale et l'Amérique du Sud sont deux régions qui sont connectées entre elles et avec l'Amérique du Nord.</p> <p><strong>L'Amérique centrale est composée de sept pays qui se trouvent sur une étroite bande de terre ainsi que les Antilles, un groupe d'îles.</strong> Les pays qui composent l'Amérique centrale sont : El Salvador, Belize, Guatemala, Honduras, Nicaragua, Costa Rica et Panama.</p><p><strong>De son côté, l'Amérique du Sud est une région beaucoup plus vaste qui abrite la plus grande forêt tropicale humide du monde, la forêt amazonienne.</strong> Cette forêt s'étend sur près de 6 millions de km² et abrite des centaines de milliards d'arbres de plus de 6700 espèces différentes. En outre, la cordillère des Andes, la plus longue chaîne de montagnes du monde, s'étend sur environ 8000 km le long de la côte pacifique de l'Amérique du Sud.
+</p>
+
+          <p>L'Amérique centrale, l'Amérique du Sud et les Antilles dans une carte du monde:</p>
+          <img src="{{url_for('static', filename='img/amerique-centrale-sud.png')}}" class="d-inline-block align-top img-fluid" alt="">
+
+          </div>
+
+        <div id="2">
+        <hr class="dashed"/>
+          <h3 class="py-2">Exercices sur l'Amérique centrale et l'Amérique du Sud: </h3>
+          <div class="row mb-2">
+         <div class="col-md-12 target">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative card-article">
+        <div class="col p-4 d-flex flex-column position-static height240">
+          <strong class="d-inline-block mb-2 text-geo">Géographie: Monde Contemporain</strong>
+          <h3 class="mb-0">L'Amérique centrale et l'Amérique du Sud [QUIZ]</h3>
+          <div class="mb-1 text-muted">10/05/23</div>
+          <p class="mb-auto description">Cet exercice vérifie les acquisitions de connaissances sur l'Amérique centrale, l'Amérique du Sud et les Antilles.</p>
+          <a href="{{url_for('fr.exercices.quiz_amerique_centrale_sud')}}" class="stretched-link"></a>
+        </div>
+        
+      </div>
+      </div>
+    </div>
+        </div>
+        
+        <hr class="dashed"/>
+        <h2 class="py-2">Voir plus d'articles: </h2>
+      <div class="row mb-2">
+      <div class="col-md-6 target">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative card-article">
+        <div class="col p-4 d-flex flex-column position-static height240">
+          <strong class="d-inline-block mb-2 text-geo">Géographie: Monde Contemporain</strong>
+          <h3 class="mb-0">L'Europe</h3>
+          <div class="mb-1 text-muted">23/03/23</div>
+          <p class="mb-auto description">Cet article contient des explications sur le continent de l'Europe et ses sous-régions.</p>
+          <a href="{{url_for('fr.articles.europe')}}" class="stretched-link"></a>
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-md-6 target">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative card-article">
+        <div class="col p-4 d-flex flex-column position-static height240"><strong class="d-inline-block mb-2 text-his">Histoire</strong> 
+          <h3 class="mb-0">Guantanamo Bay</h3>
+          <div class="mb-1 text-muted">08/05/23</div>
+          <p class="mb-auto description">Cet article contient des explications sur l'histoire de Guantanamo Bay, ses droits brimés et ses activistes.</p>
+          <a href="{{url_for('fr.articles.guantanamo')}}" class="stretched-link"></a>
+        </div>
+        
+      </div>
+    </div>
+</main>
+      <!-- footer -->
+      {%include "fr/extensions/footer.html"%}
+      <script src="{{url_for('static',filename='js/smoothscroll.js')}}"></script>
+    </body>
+</html>

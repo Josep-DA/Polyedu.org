@@ -1,0 +1,22 @@
+{% extends 'polyedu/base.html' %}
+{% load static %}
+{% block content %}
+<br/>
+<div class="container rounded m-5 p-4">
+<h1>Classement des utilisateurs</h1>
+    <table class="table table-dark table-striped table-hover">
+        <tr>
+            <th>Rang</th>
+            <th>Utilisateur</th>
+            <th>Nombre de points</th>
+        </tr>
+        {% for profile in profiles %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td><a class="clr-link fw-bold" href="{% url 'profile' profile.user.id %}">{{ profile.user.username }}</a></td>
+            <td>{{ profile.points }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

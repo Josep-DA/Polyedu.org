@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+  {%include "fr/extensions/head.html"%}
+    <body>
+      <title>Modèle - PolyEdu</title>
+          <!-- navbar -->
+      {%include "fr/extensions/navbar.html"%}
+
+      {% include "fr/courses/geometrie-analytique/list.html" %}
+
+          <!-- Body de Title -->
+      <main class="container pt-2 rounded px-4">
+        <h1 class="mt-2">Modèle</h1>
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{url_for('fr.articles.articles')}}">Articles</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Modèle</li>
+    
+  </ol>
+</nav>
+  
+  <small>Écrit par: Auteur<br/>
+   dd/mm/yy </small><br/>
+
+        <h3 class="py-2">Chapitres de l'article: </h3>
+          <ol>
+            <li><a href="#1" class="clr-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-down" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4.854 14.854a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V3.5A2.5 2.5 0 0 1 6.5 1h8a.5.5 0 0 1 0 1h-8A1.5 1.5 0 0 0 5 3.5v9.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4z"/>
+</svg> #1</a></li>
+          </ol>
+        <div id="1">
+        <hr class="dashed"/>
+  <strong>texte en gras</strong>
+<p>texte normal</p>
+          </div>
+        <div id="tableau">
+        <hr class="dashed"/>
+  <table class="table table-dark table-striped table-hover table-bordered">
+          
+  <thead>
+    <tr>
+      <th scope="col">Col 1</th>
+      <th scope="col">Col 2</th>
+      <th scope="col">Col 3</th>
+    </tr>
+  </thead>
+  
+    <tbody><tr>
+      <th scope="row">row 1</th>
+      <td>row 2</td>
+      <td>row 3</td>
+    </tr>
+    
+  </tbody>
+</table>
+          </div>
+        
+        <hr class="dashed"/>
+        <h2 class="py-2">Voir plus d'articles: </h2>
+      <div class="row mb-2">
+        <div class="col-md-6 target">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative card-article">
+            <div class="col p-4 d-flex flex-column position-static height240">
+              <strong class="d-inline-block mb-2 text-math">Mathématiques</strong>
+              <h3 class="mb-0">La Relation de Pythagore</h3>
+              <div class="mb-1 text-muted">25/03/23</div>
+              <p class="mb-auto description">Cet article contient des explications le théorème de Pythagore, également nommée relation de Pythagore.</p>
+              <a href="{{url_for('fr.articles.pythagore')}}" class="stretched-link"></a>
+            </div>
+            
+          </div>
+        </div>
+        <div class="col-md-6 target">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative card-article">
+            <div class="col p-4 d-flex flex-column position-static height240">
+              <strong class="d-inline-block mb-2 text-math">Mathématiques</strong>
+              <h3 class="mb-0">Géométrie analytique</h3>
+              <div class="mb-1 text-muted">05/04/23</div>
+              <p class="mb-auto description">Cet article contient des explications en trois articles sur le concept de la géométrie analytique.</p>
+              <a href="{{url_for('fr.articles.geometrie_analytique')}}" class="stretched-link"></a>
+            </div>
+            
+          </div>
+        </div>
+    </div>
+</main>
+      <!-- footer -->
+      {%include "fr/extensions/footer.html"%}
+      <script src="{{url_for('static',filename='js/smoothscroll.js')}}"></script>
+    </body>
+</html>

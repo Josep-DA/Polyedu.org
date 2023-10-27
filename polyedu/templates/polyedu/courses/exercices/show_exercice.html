@@ -1,0 +1,9 @@
+{% extends 'polyedu/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/quiz_css.css' %}">
+<script src="{% static 'js/quiz/jquery-min.js' %}"></script>  
+<script src="{% static 'js/quiz/jquery-quiz-min.js' %}"></script>  
+{{exercice.body|safe}}
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'polyedu/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/art_studio.css' %}"><br/>
+    <div class="container rounded">
+      <section class="tools-board">
+        <div class="row">
+          <label class="title">Formes</label>
+          <ul class="options">
+            <li class="option tool" id="rectangle">
+              <img src="{% static 'svg/rectangle.svg' %}" alt="">
+              <span>Rectangle</span>
+            </li>
+            <li class="option tool" id="circle">
+              <img src="{% static 'svg/circle.svg' %}" alt="">
+              <span>Cercle</span>
+            </li>
+            <li class="option tool" id="triangle">
+              <img src="{% static 'svg/triangle.svg' %}" alt="">
+              <span>Triangle</span>
+            </li>
+            <li class="option">
+              <input type="checkbox" id="fill-color">
+              <label for="fill-color">Remplissage des formes</label>
+            </li>
+          </ul>
+        </div>
+        <div class="row">
+          <label class="title">Options</label>
+          <ul class="options">
+            <li class="option active tool" id="brush">
+              <img src="{% static 'svg/brush.svg' %}" alt="">
+              <span>Pinceau</span>
+            </li>
+            <li class="option tool" id="eraser">
+              <img src="{% static 'svg/eraser.svg' %}" alt="">
+              <span>Efface</span>
+            </li>
+            <li class="option">
+              <input type="range" id="size-slider" min="1" max="30" value="5">
+            </li>
+          </ul>
+        </div>
+        <div class="row colors">
+          <label class="title">Couleurs</label>
+          <ul class="options">
+            <li class="option"></li>
+            <li class="option selected"></li>
+            <li class="option"></li>
+            <li class="option"></li>
+            <li class="option">
+              <input type="color" id="color-picker" value="#4A98F7">
+            </li>
+          </ul>
+        </div>
+        <div class="row buttons">
+          <button class="clear-canvas">Effacer la toile</button>
+          <button class="save-img">Sauvegarder</button>
+        </div>
+      </section>
+      <section class="drawing-board">
+        <canvas></canvas>
+      </section>
+      <section class="canvas-size">
+      <div class="row">
+        <label class="title">Canvas Size</label>
+        <ul class="options">
+          <li class="option">
+            <label for="canvas-width">Width:</label>
+            <input type="number" id="canvas-width" min="100" max="2000" value="500">
+          </li>
+          <li class="option">
+            <label for="canvas-height">Height:</label>
+            <input type="number" id="canvas-height" min="100" max="2000" value="500">
+          </li>
+        </ul>
+      </div>
+    </section>
+    </div>
+    <script src="{% static 'js/art_studio.js' %}"></script>
+    {% endblock %}
