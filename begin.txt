@@ -1,0 +1,14 @@
+START SERVER
+source virt/bin/activate
+cd PolyEdu/
+python manage.py runserver
+
+COMPILE TRANSLATIONS
+python manage.py compilemessages
+
+CREATE AND APPLY MIGRATIONS
+python manage.py makemigrations
+python manage.py migrate
+
+/w chat
+daphne social.asgi:application
