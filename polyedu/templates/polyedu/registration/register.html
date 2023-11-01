@@ -1,6 +1,15 @@
 {% extends 'polyedu/base.html' %}
 {% load static %}
 {% block content %}
+<title>Inscription - PolyEdu™</title>
+<meta name="description" content="Inscrivez-vous sur PolyEdu pour accéder à une multitude de ressources éducatives de pointe. Rejoignez-nous dans la création de l'avenir de l'apprentissage.">
+<meta property="og:description" content="Inscrivez-vous sur PolyEdu pour accéder à une multitude de ressources éducatives de pointe. Rejoignez-nous dans la création de l'avenir de l'apprentissage.">
+    <meta property="og:image" content="{% static 'images/logo.png' %}">
+    <meta property="og:url" content="https://polyedu.org/en-ca/polyedu/register/">
+    <meta name="twitter:title" content="Inscrivez-vous sur PolyEdu : Accédez à des Ressources Éducatives de Pointe">
+    <meta name="twitter:description" content="Inscrivez-vous sur PolyEdu pour accéder à une multitude de ressources éducatives de pointe. Rejoignez-nous dans la création de l'avenir de l'apprentissage.">
+    <meta name="twitter:image" content="{% static 'images/logo.png' %}">
+    <meta name="twitter:card" content="summary">
 
 <style>
 	li {
@@ -36,14 +45,14 @@ body {
 <br/>
 <main class=" m-5 text-center">
 	<form method="POST" action="">
-  
+
 	  {% csrf_token %}
-	  <img class="mb-4" src="{% static 'images/logo.png' %}" alt="" width="72" height="72">
-	  <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-  
+	  <img class="mb-4" src="{% static 'images/logo.png' %}" alt="Logo du site" width="72" height="72">
+	  <h1 class="h3 mb-3 fw-normal">Veuillez créer un compte</h1>
+
 	  {{ form.as_p }}
 
-	  <button class="w-auto btn btn-lg btn-primary mx-3" type="submit">Sign in</button>
+	  <button class="w-auto btn btn-lg btn-primary mx-3" type="submit">Créer un compte</button>
 	  <p class="mt-5 mb-3 text-muted">PolyEdu™ 2022-2023</p>
 	</form>
   </main>

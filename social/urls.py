@@ -8,6 +8,7 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include('polyedu.api.urls')),
     path('accounts/', include('django.contrib.auth.urls')),  # Include authentication-related URLs
     path('', include('polyedu.urls')),
     path('polynews/', include('polynews.urls')),

@@ -19,7 +19,7 @@ SECRET_KEY = 'django-insecure-0d&@&#$+iplcor#dzu50(oe3d#e$bakyoe@5!ydmteqk%&%w9l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['polyedu.org', '127.0.0.1']
 LOGIN_URL = '/accounts/login/'
 
 
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'bootstrap4',
     'channels',
+    'rest_framework',
 ]
 
 CKEDITOR_UPLOAD_PATH = "uploads/"

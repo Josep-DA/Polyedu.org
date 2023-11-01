@@ -5,6 +5,9 @@ from django.utils.text import slugify
 from colorfield.fields import ColorField
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField 
+from io import BytesIO
+from django.core.files.base import ContentFile
+from PIL import Image 
 
 class Category(models.Model):
 	color = ColorField()

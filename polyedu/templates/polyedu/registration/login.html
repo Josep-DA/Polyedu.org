@@ -1,8 +1,9 @@
 {% extends 'polyedu/base.html' %}
 {% block content %}
 {% load static %}
+<title>Connexion - PolyEdu™</title>
 {% if user.is_authenticated %}
-<h1>You're Already Logged In!</h1>
+<h1>Vous êtes déjà connecté!</h1>
 
 {% else %}
 <style>

@@ -25,7 +25,7 @@ urlpatterns = [
     path('update_user/', views.update_user, name='update_user'),
     path('unfollow/<int:pk>', views.unfollow, name="unfollow"),
     path('follow/<int:pk>', views.follow, name="follow"),
-    path('search_user/', views.search_user, name="search_user"),
+    path('search_user/', views.search_user, name="search_user"),    
     path('leaderboard/', views.leaderboard, name='leaderboard'),
 
     path('forum/', views.forum, name='forum'),
