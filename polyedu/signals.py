@@ -1,7 +1,7 @@
 from django.db.models.signals import post_save, m2m_changed
 from django.contrib.auth.signals import user_logged_in
 from django.dispatch import receiver
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from .models import Article, Profile
 
 @receiver(post_save, sender=Article)
@@ -20,7 +20,7 @@ def add_daily_points(sender, request, user, **kwargs):
     last_login = user.last_login
     
     # Check if the last login was more than 24 hours ago
-    now = datetime.now()
+    now = datetime.now(timezone.utc)
     if now - last_login > timedelta(days=1):
         user_profile.points += 5  # Add 5 points on the first login of the day
         user_profile.save()
